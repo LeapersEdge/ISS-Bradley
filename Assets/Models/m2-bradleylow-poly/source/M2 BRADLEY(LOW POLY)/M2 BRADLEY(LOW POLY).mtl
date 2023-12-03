@@ -1,0 +1,27 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl AnyConv_com__texture_0012
+Ka 0.000000 0.000000 0.000000
+Kd 0.333333 0.403922 0.333333
+Ks 0.330000 0.330000 0.330000
+map_Kd M2 BRADLEY(LOW POLY)/AnyConv_com__texture_0012.jpg
+
+newmtl AnyConv_com__texture_0001
+Ka 0.000000 0.000000 0.000000
+Kd 0.180392 0.168627 0.160784
+Ks 0.330000 0.330000 0.330000
+map_Kd M2 BRADLEY(LOW POLY)/AnyConv_com__texture_0001.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl Wet_Dirt_basecolor_tga
+Ka 0.000000 0.000000 0.000000
+Kd 0.454902 0.345098 0.250980
+Ks 0.330000 0.330000 0.330000
+map_Kd M2 BRADLEY(LOW POLY)/Wet_Dirt_basecolor_tga.png
+
