@@ -195,6 +195,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5615691129034196868}
+  - {fileID: 4839280477218546294}
   - {fileID: 3250226598456948155}
   m_Father: {fileID: 6144592825142754723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -375,6 +377,7 @@ GameObject:
   - component: {fileID: 5790568652508359917}
   - component: {fileID: 8663144721038324173}
   - component: {fileID: 412040570620560210}
+  - component: {fileID: 8119043887119305813}
   m_Layer: 0
   m_Name: Mesh239_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -447,6 +450,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8119043887119305813
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343463451487233828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1413313760417055461, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &355001951952146319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1313,7 @@ GameObject:
   - component: {fileID: 1332647702560513551}
   - component: {fileID: 9132580543048393103}
   - component: {fileID: 8641673538073157411}
+  - component: {fileID: 5728526462229368433}
   m_Layer: 0
   m_Name: Mesh242_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -1360,6 +1386,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5728526462229368433
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603861821638683267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5976639449220391200, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &649803384276514415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2498,7 @@ GameObject:
   - component: {fileID: 3152306230523797053}
   - component: {fileID: 4512722368041254561}
   - component: {fileID: 55712448374262587}
+  - component: {fileID: 8619400523426308184}
   m_Layer: 0
   m_Name: Mesh313_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -2522,6 +2571,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8619400523426308184
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955990366539362815}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3197392908446957170, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &987410494183073860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,6 +2604,7 @@ GameObject:
   - component: {fileID: 837730023313231504}
   - component: {fileID: 5675256415558991303}
   - component: {fileID: 7091829778931138277}
+  - component: {fileID: 735865028665166121}
   m_Layer: 0
   m_Name: Mesh231_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -2605,6 +2677,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &735865028665166121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987410494183073860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7021889596660173029, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &1013976466806947724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2959,7 @@ GameObject:
   - component: {fileID: 7744628834065259172}
   - component: {fileID: 344892260895633889}
   - component: {fileID: 3554926865738823824}
+  - component: {fileID: 2412377331047239508}
   m_Layer: 0
   m_Name: Mesh235_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -2937,6 +3032,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2412377331047239508
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091410381372748795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7279112903379858010, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &1133532962488909134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6144592825142754723}
+  - component: {fileID: 4411616648317047798}
   m_Layer: 0
   m_Name: M2 BRADLEY(LOW POLY)
   m_TagString: Untagged
@@ -3552,6 +3670,33 @@ Transform:
   - {fileID: 1218896944664291804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &4411616648317047798
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312319868702436461}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1364710396338760627
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,6 +5866,7 @@ GameObject:
   - component: {fileID: 3543404350352976339}
   - component: {fileID: 3047535346184944528}
   - component: {fileID: 6615612237286389136}
+  - component: {fileID: 1844428089027231697}
   m_Layer: 0
   m_Name: Mesh241_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -5793,6 +5939,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1844428089027231697
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869366473196783199}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2617151176920901607, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &1901261799517235857
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,6 +6055,7 @@ GameObject:
   - component: {fileID: 5764901464042372209}
   - component: {fileID: 190585094724304415}
   - component: {fileID: 5754340559542420007}
+  - component: {fileID: 5137821186329272198}
   m_Layer: 0
   m_Name: Mesh312_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -5959,6 +6128,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5137821186329272198
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902966708026785018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4847129621649612351, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &1920270416188819613
 GameObject:
   m_ObjectHideFlags: 0
@@ -7309,6 +7500,7 @@ GameObject:
   - component: {fileID: 2173591615180732962}
   - component: {fileID: 4503508214985953238}
   - component: {fileID: 6531691542953014472}
+  - component: {fileID: 5915870788977246602}
   m_Layer: 0
   m_Name: Mesh248_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -7381,6 +7573,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5915870788977246602
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445041971837053716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 847455447377733621, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &2454482469155771593
 GameObject:
   m_ObjectHideFlags: 0
@@ -7639,6 +7853,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909112639039525744}
+  - component: {fileID: 1967084217429145388}
+  - component: {fileID: 4389529834046443246}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -7808,6 +8024,48 @@ Transform:
   - {fileID: 7815351354616499936}
   m_Father: {fileID: 6144592825142754723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1967084217429145388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515321989061161797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1739.3469, y: 1471.8806, z: 6615.593}
+  m_Center: {x: -39.74414, y: 1142.0232, z: -201.00244}
+--- !u!65 &4389529834046443246
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515321989061161797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3569.9214, y: 854.70557, z: 6535.0723}
+  m_Center: {x: -50.774414, y: 1362.0588, z: -160.74268}
 --- !u!1 &2524157094243444682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9479,6 +9737,7 @@ GameObject:
   - component: {fileID: 3524788369272216197}
   - component: {fileID: 8675389559766844866}
   - component: {fileID: 4313207765478395731}
+  - component: {fileID: 8680525825063918284}
   m_Layer: 0
   m_Name: Mesh228_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -9551,6 +9810,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8680525825063918284
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143938971196401128}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3491289714668027885, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &3193358149926592298
 GameObject:
   m_ObjectHideFlags: 0
@@ -9894,6 +10175,7 @@ GameObject:
   - component: {fileID: 6477869514012063354}
   - component: {fileID: 7625840100835707847}
   - component: {fileID: 2904823938368626010}
+  - component: {fileID: 2728291686288889774}
   m_Layer: 0
   m_Name: Mesh236_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -9966,6 +10248,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2728291686288889774
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329263183377645638}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3818445405433411958, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &3356658906917412178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10807,6 +11111,7 @@ GameObject:
   - component: {fileID: 7339886722903698571}
   - component: {fileID: 3397265873465145199}
   - component: {fileID: 4438765684788314441}
+  - component: {fileID: 550055117296324843}
   m_Layer: 0
   m_Name: Mesh234_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -10879,6 +11184,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &550055117296324843
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640583483043681414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8507992151288643352, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &3675846705725959408
 GameObject:
   m_ObjectHideFlags: 0
@@ -11056,6 +11383,7 @@ GameObject:
   - component: {fileID: 6832939203611775803}
   - component: {fileID: 5330742716093625299}
   - component: {fileID: 3979804021944059056}
+  - component: {fileID: 244517319607359274}
   m_Layer: 0
   m_Name: Mesh64_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -11128,6 +11456,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &244517319607359274
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708849910991582127}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1967580695017547327, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &3743146373896496762
 GameObject:
   m_ObjectHideFlags: 0
@@ -11139,6 +11489,7 @@ GameObject:
   - component: {fileID: 8650211288492940541}
   - component: {fileID: 8309789167113662914}
   - component: {fileID: 6817316098897964855}
+  - component: {fileID: 7836783971968093658}
   m_Layer: 0
   m_Name: Mesh247_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -11211,6 +11562,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7836783971968093658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743146373896496762}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -905863369123106087, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &3769137589029329947
 GameObject:
   m_ObjectHideFlags: 0
@@ -12416,6 +12789,7 @@ GameObject:
   - component: {fileID: 770340388387367913}
   - component: {fileID: 6398741785354064548}
   - component: {fileID: 2860205648330197955}
+  - component: {fileID: 1901540626424873126}
   m_Layer: 0
   m_Name: Mesh123_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -12488,6 +12862,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1901540626424873126
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184002485914745659}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7752316589170067937, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4185566057689587359
 GameObject:
   m_ObjectHideFlags: 0
@@ -12831,6 +13227,7 @@ GameObject:
   - component: {fileID: 1320929933255020669}
   - component: {fileID: 206759446524246712}
   - component: {fileID: 5468518968109780815}
+  - component: {fileID: 8483666192004563413}
   m_Layer: 0
   m_Name: Mesh121_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -12903,6 +13300,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8483666192004563413
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4275441117686679894}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5751449570853837108, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4289632894953213937
 GameObject:
   m_ObjectHideFlags: 0
@@ -13578,6 +13997,7 @@ GameObject:
   - component: {fileID: 2886327561654281183}
   - component: {fileID: 4168748909313006572}
   - component: {fileID: 8381373499006138974}
+  - component: {fileID: 6740075380554164851}
   m_Layer: 0
   m_Name: Mesh316_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -13650,6 +14070,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6740075380554164851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4500710954431954238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3786157826774961777, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4502393026741121163
 GameObject:
   m_ObjectHideFlags: 0
@@ -13661,6 +14103,7 @@ GameObject:
   - component: {fileID: 3132307210592807347}
   - component: {fileID: 2562157829811644144}
   - component: {fileID: 2278915136203290262}
+  - component: {fileID: 891127263939188741}
   m_Layer: 0
   m_Name: Mesh229_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -13733,6 +14176,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &891127263939188741
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4502393026741121163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4589136752184560614, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4564909286823904405
 GameObject:
   m_ObjectHideFlags: 0
@@ -14823,6 +15288,7 @@ GameObject:
   - component: {fileID: 8223329060687565393}
   - component: {fileID: 335361604637138502}
   - component: {fileID: 3018261520190482310}
+  - component: {fileID: 5893293727352244844}
   m_Layer: 0
   m_Name: Mesh114_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -14895,6 +15361,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5893293727352244844
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811520325558861798}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4445441623858267948, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4831713089016636469
 GameObject:
   m_ObjectHideFlags: 0
@@ -14904,6 +15392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497709589333795966}
+  - component: {fileID: 3208622634676332517}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -14944,6 +15433,27 @@ Transform:
   - {fileID: 7629594593435591062}
   m_Father: {fileID: 5615691129034196868}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3208622634676332517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831713089016636469}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 103.1794, y: 90.4292, z: 1534.7405}
+  m_Center: {x: 6.921135, y: 2274.3079, z: 1627.4891}
 --- !u!1 &4832071416065897270
 GameObject:
   m_ObjectHideFlags: 0
@@ -15038,6 +15548,7 @@ GameObject:
   - component: {fileID: 276030942656642784}
   - component: {fileID: 3553451486513205393}
   - component: {fileID: 1539603513803212455}
+  - component: {fileID: 3650477645576802345}
   m_Layer: 0
   m_Name: Mesh243_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -15110,6 +15621,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3650477645576802345
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4880092657534010263}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2825165116704271730, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &4916258003927336880
 GameObject:
   m_ObjectHideFlags: 0
@@ -15702,6 +16235,7 @@ GameObject:
   - component: {fileID: 799944183282534935}
   - component: {fileID: 3252907628586154297}
   - component: {fileID: 8364262044047119756}
+  - component: {fileID: 9018898727194828345}
   m_Layer: 0
   m_Name: Mesh245_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -15774,6 +16308,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9018898727194828345
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185896283159680743}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6015733244629092893, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &5187646786643196950
 GameObject:
   m_ObjectHideFlags: 0
@@ -16781,6 +17337,7 @@ GameObject:
   - component: {fileID: 4832028557610114255}
   - component: {fileID: 6229358687667768026}
   - component: {fileID: 4649081893402644991}
+  - component: {fileID: 3343802702671245238}
   m_Layer: 0
   m_Name: Mesh244_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -16853,6 +17410,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3343802702671245238
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535940283794357637}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5657848119656135144, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &5550470516010696903
 GameObject:
   m_ObjectHideFlags: 0
@@ -18773,6 +19352,7 @@ GameObject:
   - component: {fileID: 9211310303862616042}
   - component: {fileID: 3916033776937784939}
   - component: {fileID: 6712857887238318140}
+  - component: {fileID: 7597222463591116496}
   m_Layer: 0
   m_Name: Mesh117_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -18845,6 +19425,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7597222463591116496
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195961442130517326}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4687146161091875299, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &6204061973446602225
 GameObject:
   m_ObjectHideFlags: 0
@@ -19518,6 +20120,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3250226598456948155}
+  - component: {fileID: 3226515770905595840}
+  - component: {fileID: 6870740369602040864}
+  - component: {fileID: 229038646892702204}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -19538,8 +20143,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4839280477218546294}
-  - {fileID: 5615691129034196868}
   - {fileID: 3277474626344730632}
   - {fileID: 8944970775725485343}
   - {fileID: 7650751440893561000}
@@ -19646,6 +20249,69 @@ Transform:
   - {fileID: 6888476833925054791}
   m_Father: {fileID: 7079194828146550426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3226515770905595840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314445454050072424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2511.6277, y: 816.21716, z: 1950.8785}
+  m_Center: {x: 175.38147, y: 2435.2966, z: -805.04816}
+--- !u!65 &6870740369602040864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314445454050072424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 478.95605, y: 597.5913, z: 1472.7389}
+  m_Center: {x: -1333.8882, y: 2646.0007, z: -646.24945}
+--- !u!65 &229038646892702204
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314445454050072424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1560.7103, y: 547.12305, z: 476.58154}
+  m_Center: {x: 101.98035, y: 2360.1338, z: -2039.9016}
 --- !u!1 &6354786136618616177
 GameObject:
   m_ObjectHideFlags: 0
@@ -19989,6 +20655,7 @@ GameObject:
   - component: {fileID: 290734456671366373}
   - component: {fileID: 4551410313010858313}
   - component: {fileID: 8483102721437655102}
+  - component: {fileID: 5155297005958219578}
   m_Layer: 0
   m_Name: Mesh246_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -20061,6 +20728,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5155297005958219578
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403373598254521325}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2662241431619547664, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &6421419736657209108
 GameObject:
   m_ObjectHideFlags: 0
@@ -20487,6 +21176,7 @@ GameObject:
   - component: {fileID: 315553309962176446}
   - component: {fileID: 2544653963334307215}
   - component: {fileID: 5646607972905858762}
+  - component: {fileID: 2915085626849375576}
   m_Layer: 0
   m_Name: Mesh116_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -20559,6 +21249,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2915085626849375576
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572436575729211967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8371476949432642004, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &6680422996362599467
 GameObject:
   m_ObjectHideFlags: 0
@@ -20819,6 +21531,7 @@ GameObject:
   - component: {fileID: 2593137755098698982}
   - component: {fileID: 3604035741878005289}
   - component: {fileID: 1451606283898132946}
+  - component: {fileID: 36155783200903608}
   m_Layer: 0
   m_Name: Mesh119_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -20891,6 +21604,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &36155783200903608
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767425105935037421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 632090250895014306, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &6795780600493543746
 GameObject:
   m_ObjectHideFlags: 0
@@ -21149,6 +21884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4839280477218546294}
+  - component: {fileID: 5368262798491473143}
   m_Layer: 0
   m_Name: radar pivot
   m_TagString: Untagged
@@ -21165,14 +21901,35 @@ Transform:
   m_GameObject: {fileID: 6950992371204095152}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1069, y: 3167, z: -1544}
+  m_LocalPosition: {x: 1041, y: 1152, z: -799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4739825919962244707}
   - {fileID: 2007549268630822804}
-  m_Father: {fileID: 3250226598456948155}
+  m_Father: {fileID: 7079194828146550426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5368262798491473143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950992371204095152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 652.96216, y: 521.41626, z: 268.05737}
+  m_Center: {x: 74.364746, y: -41.058228, z: -11.778687}
 --- !u!1 &6961729449879143260
 GameObject:
   m_ObjectHideFlags: 0
@@ -21516,6 +22273,7 @@ GameObject:
   - component: {fileID: 5771687835291206678}
   - component: {fileID: 8733661202444841448}
   - component: {fileID: 4715750882077879541}
+  - component: {fileID: 3681504365237068898}
   m_Layer: 0
   m_Name: Mesh125_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -21588,6 +22346,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3681504365237068898
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975669123291499904}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3094626279036606187, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &7010352823895428606
 GameObject:
   m_ObjectHideFlags: 0
@@ -21763,6 +22543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5615691129034196868}
+  - component: {fileID: 1192983831043542590}
   m_Layer: 0
   m_Name: barrel pivot
   m_TagString: Untagged
@@ -21778,14 +22559,35 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7163592294269745997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: 2259, z: -112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10, y: 244, z: 633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1497709589333795966}
-  m_Father: {fileID: 3250226598456948155}
+  m_Father: {fileID: 7079194828146550426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1192983831043542590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163592294269745997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 989.65497, y: 308.68335, z: 626.30835}
+  m_Center: {x: 102.07669, y: 17.393677, z: 630.0338}
 --- !u!1 &7192150414979602820
 GameObject:
   m_ObjectHideFlags: 0
@@ -21797,6 +22599,7 @@ GameObject:
   - component: {fileID: 1786653748194802115}
   - component: {fileID: 6445333982242585518}
   - component: {fileID: 4061300478731149510}
+  - component: {fileID: 5518764965699777856}
   m_Layer: 0
   m_Name: Mesh112_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -21869,6 +22672,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5518764965699777856
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192150414979602820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 291587398917051842, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &7200226446992683750
 GameObject:
   m_ObjectHideFlags: 0
@@ -22212,6 +23037,7 @@ GameObject:
   - component: {fileID: 5410010425377244997}
   - component: {fileID: 7141068902585376504}
   - component: {fileID: 6650165425089210191}
+  - component: {fileID: 1546405144623895376}
   m_Layer: 0
   m_Name: Mesh240_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -22284,6 +23110,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1546405144623895376
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250852451701734983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6218506393745899382, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &7264240786808230778
 GameObject:
   m_ObjectHideFlags: 0
@@ -22544,6 +23392,7 @@ GameObject:
   - component: {fileID: 5026191328534230157}
   - component: {fileID: 3737383699795461451}
   - component: {fileID: 2220798292342485958}
+  - component: {fileID: 3294425227346104062}
   m_Layer: 0
   m_Name: Mesh238_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -22616,6 +23465,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3294425227346104062
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374848677571686470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2145837600511140564, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &7456807310953064071
 GameObject:
   m_ObjectHideFlags: 0
@@ -23125,6 +23996,7 @@ GameObject:
   - component: {fileID: 278030938797431344}
   - component: {fileID: 1226826496497369136}
   - component: {fileID: 934977901651480135}
+  - component: {fileID: 8129580638437660271}
   m_Layer: 0
   m_Name: Mesh50_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -23197,6 +24069,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8129580638437660271
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691495041676938206}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -449794752402059248, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &7700061311459466730
 GameObject:
   m_ObjectHideFlags: 0
@@ -24816,6 +25710,7 @@ GameObject:
   - component: {fileID: 1627642522443664516}
   - component: {fileID: 2848148167058375243}
   - component: {fileID: 7567760024312051102}
+  - component: {fileID: 6185404028644891146}
   m_Layer: 0
   m_Name: Mesh233_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -24888,6 +25783,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6185404028644891146
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220982868843804363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1612355182259654615, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &8270041682032545974
 GameObject:
   m_ObjectHideFlags: 0
@@ -26227,6 +27144,7 @@ GameObject:
   - component: {fileID: 7048978306778424116}
   - component: {fileID: 7450385150379454490}
   - component: {fileID: 5502729433901268529}
+  - component: {fileID: 3616090242999268318}
   m_Layer: 0
   m_Name: Mesh237_M2Bradleyfull1_1_US_Army_M2_Bradley_IFV_Statesman_Set_01_1_Model
   m_TagString: Untagged
@@ -26299,6 +27217,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3616090242999268318
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553357935611342100}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7691055764237832698, guid: 6617663ff471c432db686086e1a56f1c, type: 3}
 --- !u!1 &8556253606639586912
 GameObject:
   m_ObjectHideFlags: 0
