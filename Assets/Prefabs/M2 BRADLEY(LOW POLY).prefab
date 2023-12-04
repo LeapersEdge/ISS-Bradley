@@ -3645,6 +3645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6144592825142754723}
   - component: {fileID: 4411616648317047798}
+  - component: {fileID: 8339553944566690703}
   m_Layer: 0
   m_Name: M2 BRADLEY(LOW POLY)
   m_TagString: Untagged
@@ -3662,8 +3663,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7079194828146550426}
   - {fileID: 909112639039525744}
@@ -3678,7 +3679,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312319868702436461}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3697,6 +3698,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8339553944566690703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312319868702436461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec81672efeed5d9f081ddf43f13dadcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHead: {fileID: 142109930039617033}
+  tankShell: {fileID: 5127322356550853833, guid: 7c3ee523ec07f4b8080036254832b62b, type: 3}
+  tankShellSpawnLocation: {fileID: 8215450541504504851}
+  speed: 15
+  turnSpeed: 125
+  shellSpeed: 125
 --- !u!1 &1364710396338760627
 GameObject:
   m_ObjectHideFlags: 0
@@ -11463,7 +11482,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3708849910991582127}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c61d597eeb27f61cd9ce28b519b9838b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -24076,7 +24095,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7691495041676938206}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c61d597eeb27f61cd9ce28b519b9838b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
