@@ -7,12 +7,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource audioSource;
+    ParticleSystem barrelFireParticleSystem;
 
     [Header("Objects")]
     [SerializeField] GameObject tankHead;
     [SerializeField] GameObject tankShellPrefab;
     [SerializeField] GameObject tankShellSpawnLocation;
     [SerializeField] GameObject tankBarrel;
+    [SerializeField] GameObject barrelFireParicle;
     [Header("Player Movement")]
     [SerializeField] float speed = 125f;
     [SerializeField] float turnSpeed = 125f;
@@ -26,10 +29,16 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     Vector3 acceleration;
 
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+        barrelFireParticleSystem = barrelFireParicle.GetComponent<ParticleSystem>();
+        barrelFireParticleSystem.Stop();
+        barrelFireParicle.transform.parent = null;
+        barrelFireParicle.transform.localScale = new Vector3(1, 1, 1);
     }
 
     // Update is called once per frame
@@ -68,7 +77,10 @@ public class PlayerController : MonoBehaviour
         {
             GameObject shell = Instantiate(tankShellPrefab, tankShellSpawnLocation.transform.position, tankShellSpawnLocation.transform.rotation);
             shell.GetComponent<TankShellController>().shellSpeed = shellSpeed;
-            //tankShellSpawnLocation.GetComponent<AudioSource>().Play();
+            audioSource.Play();
+            barrelFireParicle.transform.position = tankShellSpawnLocation.transform.position;
+            barrelFireParicle.transform.rotation = tankShellSpawnLocation.transform.rotation;
+            barrelFireParticleSystem.Play();
         }
     }
 
