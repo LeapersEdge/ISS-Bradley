@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     ParticleSystem barrelFireParticleSystem;
 
     [Header("Objects")]
+    [SerializeField] GameObject projectilesParent;
     [SerializeField] GameObject tankHead;
     [SerializeField] GameObject tankShellPrefab;
     [SerializeField] GameObject tankShellSpawnLocation;
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject shell = Instantiate(tankShellPrefab, tankShellSpawnLocation.transform.position, tankShellSpawnLocation.transform.rotation);
+            shell.transform.SetParent(projectilesParent.transform);
             shell.GetComponent<TankShellController>().shellSpeed = shellSpeed;
             audioSource.Play();
             barrelFireParicle.transform.position = tankShellSpawnLocation.transform.position;
