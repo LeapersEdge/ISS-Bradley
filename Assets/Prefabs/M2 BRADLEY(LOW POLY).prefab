@@ -3739,6 +3739,7 @@ GameObject:
   - component: {fileID: 6144592825142754723}
   - component: {fileID: 4411616648317047798}
   - component: {fileID: 8339553944566690703}
+  - component: {fileID: 4908605016869445586}
   - component: {fileID: 2658626213617793650}
   m_Layer: 0
   m_Name: M2 BRADLEY(LOW POLY)
@@ -3804,12 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec81672efeed5d9f081ddf43f13dadcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles_parent: {fileID: 0}
-  tankHead: {fileID: 142109930039617033}
-  tankShellPrefab: {fileID: 5127322356550853833, guid: 7c3ee523ec07f4b8080036254832b62b, type: 3}
-  tankShellSpawnLocation: {fileID: 8215450541504504851}
-  tankBarrel: {fileID: 7163592294269745997}
-  barrelFireParicle: {fileID: 4999821485228807480}
   speed: 5
   turnSpeed: 75
   shellSpeed: 125
@@ -3817,6 +3812,36 @@ MonoBehaviour:
   barrelTurnSpeed: 45
   barrelMinAngle: -10
   barrelMaxAngle: 45
+--- !u!114 &4908605016869445586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312319868702436461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b7c6cdd0de559d78dedd6349740f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilesParentName: Projectiles
+  tankHead: {fileID: 142109930039617033}
+  tankShellPrefab: {fileID: 5127322356550853833, guid: 7c3ee523ec07f4b8080036254832b62b, type: 3}
+  tankShellSpawnLocation: {fileID: 8215450541504504851}
+  tankBarrel: {fileID: 7163592294269745997}
+  barrelFireParicle: {fileID: 4999821485228807480}
+  speed: 125
+  turnSpeed: 125
+  shellSpeed: 125
+  headTurnSpeed: 75
+  barrelTurnSpeed: 45
+  barrelMinAngle: -10
+  barrelMaxAngle: 45
+  horizontal: 0
+  vertical: 0
+  horizontalHat: 0
+  verticalHat: 0
+  fire: 0
 --- !u!82 &2658626213617793650
 AudioSource:
   m_ObjectHideFlags: 0
