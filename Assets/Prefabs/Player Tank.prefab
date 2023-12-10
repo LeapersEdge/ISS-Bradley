@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6870228933691618332}
+
   m_Father: {fileID: 8023459845747696997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6442227549954493505
@@ -650,6 +651,7 @@ GameObject:
   - component: {fileID: 8023459845747696997}
   - component: {fileID: 7182422559095618338}
   - component: {fileID: 211251284607724841}
+
   m_Layer: 0
   m_Name: Player Tank
   m_TagString: Player
@@ -717,6 +719,7 @@ MonoBehaviour:
   tankHead: {fileID: 116926912087849572}
   speed: 125
   turnSpeed: 125
+
 --- !u!1 &6722548062479449324
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +769,7 @@ GameObject:
   - component: {fileID: 3548612526361338959}
   m_Layer: 0
   m_Name: Barrel
+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -785,6 +789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 789689878240658427}
+
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3688915194601296825
 MeshFilter:
