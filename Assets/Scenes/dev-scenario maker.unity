@@ -235,7 +235,7 @@ RectTransform:
   m_Father: {fileID: 544747137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -730,7 +730,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: ChangeEnemyTankOnDropdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &87519945
 MonoBehaviour:
@@ -1287,7 +1299,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -254.42929}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253173781
 MonoBehaviour:
@@ -2987,7 +2999,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdateRotationZ
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -3439,7 +3463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612786118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3535,7 +3559,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -317.6639}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613983794
 MonoBehaviour:
@@ -3790,7 +3814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &646518806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4013,7 +4037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &653789339
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4457,7 +4481,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdateAimAccuracyY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -4899,7 +4935,7 @@ RectTransform:
   m_Father: {fileID: 934680520}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5701,7 +5737,7 @@ GameObject:
   - component: {fileID: 942830230}
   - component: {fileID: 942830229}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: move above selected Button (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5770,7 +5806,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 942830230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: SelectMoveAboveSelectedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &942830230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6289,12 +6337,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42af9a94053735e08f15fed4e8cc2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTankPrefabs: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  playerTankPrefab: {fileID: 0}
   terrainPrefabs:
   - {fileID: 723917140669615581, guid: ddeb93399aae3f9fdae7160886259864, type: 3}
   - {fileID: 67547698887899936, guid: 0291da93ec61f3f41bd5c91f6e89ef93, type: 3}
   enemyTankPrefabs:
   - {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  enemyTankButtonPrefab: {fileID: 0}
+  targetLocationButtonPrefab: {fileID: 0}
+  terrainDropdown: {fileID: 0}
+  enemyTanksDropdown: {fileID: 0}
+  enemyTanksListContent: {fileID: 0}
+  targetLocationsListContent: {fileID: 0}
+  agressiveTargetLocationToggle: {fileID: 0}
+  accuracyXText: {fileID: 0}
+  accuracyYText: {fileID: 0}
+  positionXText: {fileID: 0}
+  positionYText: {fileID: 0}
+  positionZText: {fileID: 0}
+  rotationXText: {fileID: 0}
+  rotationYText: {fileID: 0}
+  rotationZText: {fileID: 0}
 --- !u!1 &1050326219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,7 +6609,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdateAimAccuracyX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -6790,7 +6865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.4, y: 252.38}
+  m_AnchoredPosition: {x: -113.52, y: 252.38}
   m_SizeDelta: {x: 130.0107, y: 30.003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083626461
@@ -6836,7 +6911,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1083626462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: SelectPlayerTankButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1083626462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7613,7 +7700,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: ToggleAgressiveTargetLocation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1257279572
 GameObject:
@@ -7867,7 +7966,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: ChangeTerrainOnDropdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1346831724
 MonoBehaviour:
@@ -8817,7 +8928,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdateRotationX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -9222,7 +9345,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdatePositionY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -9610,7 +9745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1706682439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: MoveTargetLocationPositionToNextClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1706682439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9898,6 +10045,7 @@ GameObject:
   - component: {fileID: 1749371164}
   - component: {fileID: 1749371163}
   - component: {fileID: 1749371162}
+  - component: {fileID: 1749371166}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -9992,6 +10140,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1749371166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749371161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42af9a94053735e08f15fed4e8cc2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTankPrefab: {fileID: 0}
+  terrainPrefabs:
+  - {fileID: 723917140669615581, guid: ddeb93399aae3f9fdae7160886259864, type: 3}
+  - {fileID: 67547698887899936, guid: 0291da93ec61f3f41bd5c91f6e89ef93, type: 3}
+  enemyTankPrefabs: []
+  enemyTankButtonPrefab: {fileID: 0}
+  targetLocationButtonPrefab: {fileID: 0}
+  terrainDropdown: {fileID: 1346831721}
+  enemyTanksDropdown: {fileID: 87519942}
+  enemyTanksListContent: {fileID: 613983792}
+  targetLocationsListContent: {fileID: 253173779}
+  agressiveTargetLocationToggle: {fileID: 1239281453}
+  accuracyXText: {fileID: 1057124477}
+  accuracyYText: {fileID: 735664938}
+  positionXText: {fileID: 1841987390}
+  positionYText: {fileID: 1841987390}
+  positionZText: {fileID: 1983788036}
+  rotationXText: {fileID: 1558792706}
+  rotationYText: {fileID: 1891194625}
+  rotationZText: {fileID: 518657104}
 --- !u!1 &1778205948
 GameObject:
   m_ObjectHideFlags: 0
@@ -10870,7 +11050,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdatePositionX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -11174,7 +11366,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdateRotationY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -11683,7 +11887,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1749371166}
+        m_TargetAssemblyTypeName: ScenarioMakerUI, Assembly-CSharp
+        m_MethodName: UpdatePositionZ
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls: []
