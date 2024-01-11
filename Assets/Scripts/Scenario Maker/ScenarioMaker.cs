@@ -7,7 +7,7 @@ public class ScenarioMaker : MonoBehaviour
     [SerializeField] float speed = 125f;
     [SerializeField] float turnSpeed = 125f;
     [Header("Objects")]
-    [SerializeField] public bool locked = true;
+    [SerializeField] public bool locked = false;
     [SerializeField] GameObject crosshairUIPanel;
 
     bool firstMouseDeltaX = false;
@@ -49,7 +49,6 @@ public class ScenarioMaker : MonoBehaviour
     {
         float mouseDeltaX = Input.GetAxisRaw("Mouse X");
         float mouseDeltaY = Input.GetAxisRaw("Mouse Y");
-
     }
 
     void UpdateLocked()
