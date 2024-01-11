@@ -35,6 +35,8 @@ public class ScenarioMakerUI : MonoBehaviour
     EnemyTankEntry[] enemyTankEntries;
     int enemyTankEntryIndex = -1;
     int targetLocationIndex = -1;
+    ScenarioMakerMode scenarioMakerMode = ScenarioMakerMode.None;
+    ScenarioMaker scenarioMaker;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +45,51 @@ public class ScenarioMakerUI : MonoBehaviour
         loadedTerrainPrefab.transform.position = new Vector3(0, 0, 0);
         loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
         terrainDropdown.GetComponent<Dropdown>().value = 0;
-
         enemyTanksDropdown.GetComponent<Dropdown>().value = 0;
+        scenarioMaker = FindObjectOfType<ScenarioMaker>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (scenarioMakerMode)
+        {
+            case ScenarioMakerMode.None:
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    scenarioMakerMode = ScenarioMakerMode.Freeroaming;
+                    scenarioMaker.locked = true;
+                }
+                break;
+            }
+            case ScenarioMakerMode.Freeroaming:
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    scenarioMakerMode = ScenarioMakerMode.None;
+                    scenarioMaker.locked = false;
+                }
+                break;
+            }
+            case ScenarioMakerMode.TankEdit:
+            {
+                
+                break;
+            }
+            case ScenarioMakerMode.LocationEdit:
+            {
+
+                break;
+            }
+            default:
+            {
+                Debug.LogError("ScenarioMakerMode in scenariomakerUI.cs is in unknown/unhandled state: " + scenarioMakerMode);
+                Debug.LogWarning("Setting ScenarioMakerMode to None");
+                scenarioMakerMode = ScenarioMakerMode.None;
+                break;
+            }
+        }
     }
 
     //-------------------------------------------------------
