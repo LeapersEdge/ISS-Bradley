@@ -6276,25 +6276,6 @@ MonoBehaviour:
   turnSpeed: 125
   locked: 0
   crosshairUIPanel: {fileID: 418962993}
-
---- !u!114 &1041864178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041864175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42af9a94053735e08f15fed4e8cc2b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTankPrefabs: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
-  terrainPrefabs:
-  - {fileID: 723917140669615581, guid: ddeb93399aae3f9fdae7160886259864, type: 3}
-  - {fileID: 67547698887899936, guid: 0291da93ec61f3f41bd5c91f6e89ef93, type: 3}
-  enemyTankPrefabs:
-  - {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
 --- !u!1 &1050326219
 GameObject:
   m_ObjectHideFlags: 0
