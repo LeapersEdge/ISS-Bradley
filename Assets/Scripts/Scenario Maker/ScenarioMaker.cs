@@ -80,13 +80,17 @@ public class ScenarioMaker : MonoBehaviour
                         {
                             Vector3 hit_point = hit.point;
                             hit_point.y += 1f;
-                            GameObject new_tank = Instantiate(to_instantiate, hit_point, Quaternion.identity);
+                            
                             // set the z rotatin to be the same as the camera's
-                            new_tank.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
                             // check if instantiated tank is an enemy tank
-                            if (new_tank.GetComponent<PlayerController>() == null)
+                            if (to_instantiate.GetComponent<PlayerController>() == null)
                             {
+                                GameObject new_tank = Instantiate(to_instantiate, hit_point, Quaternion.identity);
+                                new_tank.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                                new_tank.GetComponent<TankController>().enabled = false;
+                                new_tank.GetComponent<Rigidbody>().isKinematic = true;
+
                                 EnemyTankEntry enemyTankEntry = new EnemyTankEntry();
                                 enemyTankEntry.tankPrefabName = to_instantiate.name;
                                 enemyTankEntry.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
@@ -106,6 +110,11 @@ public class ScenarioMaker : MonoBehaviour
                             }
                             else if (player_tank_instance == null)
                             {
+                                GameObject new_tank = Instantiate(to_instantiate, hit_point, Quaternion.identity);
+                                new_tank.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                                new_tank.GetComponent<TankController>().enabled = false;
+                                new_tank.GetComponentInChildren<Camera>().enabled = false;
+                                new_tank.GetComponent<Rigidbody>().isKinematic = true;
                                 scenarioMakerUI.playerTankTransform = new_tank.transform;
                                 player_tank_instance = new_tank;
                             }
