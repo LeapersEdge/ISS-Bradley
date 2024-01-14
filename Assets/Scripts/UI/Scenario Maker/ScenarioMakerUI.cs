@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScenarioMakerUI : MonoBehaviour
 {
     [Header("Prefabs")]
-    [SerializeField] GameObject playerTankPrefab;
+    [SerializeField] public GameObject playerTankPrefab;
     [SerializeField] GameObject[] terrainPrefabs;
     [SerializeField] GameObject[] enemyTankPrefabs;
     [SerializeField] GameObject enemyTankButtonPrefab;
@@ -30,13 +30,18 @@ public class ScenarioMakerUI : MonoBehaviour
     [SerializeField] GameObject rotationZText;
 
     GameObject loadedTerrainPrefab;
-    GameObject selectedTankPrefab;
+    [HideInInspector] public GameObject selectedTankPrefab;
 
-    EnemyTankEntry[] enemyTankEntries;
+    [HideInInspector] public bool move_player = false;
+    [HideInInspector] public bool move_enemy = false;
+    [HideInInspector] public int selected_enemy_index = -1;
+    [HideInInspector] public bool move_target_location = false;
+    [HideInInspector] public int selected_target_location_index = -1;
+    [HideInInspector] public List<EnemyTankEntry> enemyTankEntries;
+    [HideInInspector] public Transform playerTankTransform;
+
     int enemyTankEntryIndex = -1;
     int targetLocationIndex = -1;
-    ScenarioMakerMode scenarioMakerMode = ScenarioMakerMode.None;
-    ScenarioMaker scenarioMaker;
 
     // Start is called before the first frame update
     void Start()
@@ -46,50 +51,12 @@ public class ScenarioMakerUI : MonoBehaviour
         loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
         terrainDropdown.GetComponent<Dropdown>().value = 0;
         enemyTanksDropdown.GetComponent<Dropdown>().value = 0;
-        scenarioMaker = FindObjectOfType<ScenarioMaker>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (scenarioMakerMode)
-        {
-            case ScenarioMakerMode.None:
-            {
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    scenarioMakerMode = ScenarioMakerMode.Freeroaming;
-                    scenarioMaker.locked = true;
-                }
-                break;
-            }
-            case ScenarioMakerMode.Freeroaming:
-            {
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    scenarioMakerMode = ScenarioMakerMode.None;
-                    scenarioMaker.locked = false;
-                }
-                break;
-            }
-            case ScenarioMakerMode.TankEdit:
-            {
-                
-                break;
-            }
-            case ScenarioMakerMode.LocationEdit:
-            {
-
-                break;
-            }
-            default:
-            {
-                Debug.LogError("ScenarioMakerMode in scenariomakerUI.cs is in unknown/unhandled state: " + scenarioMakerMode);
-                Debug.LogWarning("Setting ScenarioMakerMode to None");
-                scenarioMakerMode = ScenarioMakerMode.None;
-                break;
-            }
-        }
+        
     }
 
     //-------------------------------------------------------
@@ -98,12 +65,19 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void SelectPlayerTankButton()
     {
-
+        selectedTankPrefab = playerTankPrefab;
     }
 
     public void SelectMoveAboveSelectedButton()
     {
-
+        if (selectedTankPrefab == playerTankPrefab)
+        {
+            move_player = true;
+        }
+        else if (selectedTankPrefab != null)
+        {
+            move_enemy = true;
+        }
     }
 
     public void ChangeTerrainOnDropdown()
@@ -121,14 +95,9 @@ public class ScenarioMakerUI : MonoBehaviour
         selectedTankPrefab = enemyTankPrefabs[newIndex];
     }
 
-    void AddToEnemyTankList()
+    public void RefreshEnemyTankList()
     {
-
-    }
-
-    void RemoveFromEnemyTankList()
-    {
-
+        
     }
 
     void SaveScenario()
@@ -150,12 +119,17 @@ public class ScenarioMakerUI : MonoBehaviour
 
     }
 
-    void AddTargetLocation()
+    public void RefreshTargetLocationList()
+    {
+        
+    }
+
+    public void AddTargetLocation(Vector3 position, Vector3 rotation)
     {
 
     }
 
-    void DeleteTargetLocation()
+    public void DeleteTargetLocation()
     {
 
     }

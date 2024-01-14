@@ -4329,7 +4329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &729818048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6322,8 +6322,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 125
   turnSpeed: 125
-  locked: 0
+  cursor_locked: 0
   crosshairUIPanel: {fileID: 418962993}
+  scenarioMakerUI: {fileID: 1749371166}
+  scenarioMakerMode: 0
 --- !u!1 &1050326219
 GameObject:
   m_ObjectHideFlags: 0
@@ -10142,6 +10144,8 @@ MonoBehaviour:
   rotationXText: {fileID: 1558792706}
   rotationYText: {fileID: 1891194625}
   rotationZText: {fileID: 518657104}
+  selectedTankPrefab: {fileID: 0}
+  enemyTankEntries: []
 --- !u!1 &1778205948
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-enum ScenarioMakerMode
+public enum ScenarioMakerMode
 {
     // when using UI buttons, no crosshair
     None,
