@@ -227,6 +227,7 @@ public class ScenarioMaker : MonoBehaviour
                     if (scenarioMakerUI.move_target_location && 
                         scenarioMakerUI.targetLocationIndex != -1 &&
                         scenarioMakerUI.enemyTankEntryIndex != -1 &&
+                        scenarioMakerUI.targetLocationIndex != 0 &&
                         scenarioMakerUI.enemyTankEntryIndex < enemy_tank_instances.Count && 
                         scenarioMakerUI.targetLocationIndex < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations.Count 
                     )
@@ -240,12 +241,13 @@ public class ScenarioMaker : MonoBehaviour
                             hit_point.y += 0.5f;
                             scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations[index].location.position = hit_point;
                             scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations[index].location.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            scenarioMakerUI.RefreshTargetLocationList();
 
-                            enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.position = hit_point;
-                            enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            //enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.position = hit_point;
+                            //enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
-                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index].transform.position = hit_point;
-                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index - 1].transform.position = hit_point;
+                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index - 1].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                         }
                     }
                     else if ( scenarioMakerUI.targetLocationIndex != -1 &&

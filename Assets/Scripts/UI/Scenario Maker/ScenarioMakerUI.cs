@@ -197,7 +197,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void ToggleTargetLocationSelection()
     {
-
+        
     }
 
     public void RefreshTargetLocationList()
@@ -232,7 +232,7 @@ public class ScenarioMakerUI : MonoBehaviour
     {
         targetLocationIndex = index;
         scenarioMaker.scenarioMakerMode = ScenarioMakerMode.LocationEdit;
-        scenarioMaker.cursor_locked = true;
+        scenarioMaker.cursor_locked = false;
         rightUIPanel.SetActive(true);
 
         // update UI
@@ -286,7 +286,16 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void MoveTargetLocationPositionToNextClick()
     {
-        
+        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1 && targetLocationIndex != 0)
+        {
+            move_target_location = true;
+        }
+        else
+        {
+            Debug.LogError("MoveTargetLocationPositionToNextClick at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
+        }
+
+        scenarioMaker.cursor_locked = true;
     }
 
     public void UpdateAimAccuracyX()
