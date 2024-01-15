@@ -183,12 +183,22 @@ public class ScenarioMakerUI : MonoBehaviour
 
     void SaveScenario()
     {
+        int scenarioIndex = PlayerPrefs.GetInt("index", 0);
+        scenarioIndex++;
+        PlayerPrefs.SetInt("index", scenarioIndex);
+        
+        PlayerPrefs.SetString("scenario" + scenarioIndex, JsonUtility.ToJson(enemyTankEntries));
 
+        // also create a file
+        string path = Application.dataPath + "/Scenarios/scenario" + scenarioIndex + ".json";
+        System.IO.File.WriteAllText(path, JsonUtility.ToJson(enemyTankEntries));
     }
 
-    void LoadScenario()
+    void LoadScenario(int index)
     {
-
+        string json = PlayerPrefs.GetString("scenario" + index);
+        enemyTankEntries = JsonUtility.FromJson<List<EnemyTankEntry>>(json);
+        RefreshEnemyTankList();
     }
 
     //-------------------------------------------------------
