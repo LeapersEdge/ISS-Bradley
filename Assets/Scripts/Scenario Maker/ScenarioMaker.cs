@@ -134,7 +134,8 @@ public class ScenarioMaker : MonoBehaviour
                                 new_tank.GetComponentInChildren<Camera>().enabled = false;
                                 new_tank.GetComponent<Rigidbody>().isKinematic = true;
                                 new_tank.GetComponentInChildren<AudioListener>().enabled = false;
-                                scenarioMakerUI.playerTankTransform = new_tank.transform;
+                                scenarioMakerUI.playerTankTransform.position = new_tank.transform.position;
+                                scenarioMakerUI.playerTankTransform.rotation = new_tank.transform.rotation;
                                 player_tank_instance = new_tank;
                             }
                         }
@@ -365,5 +366,64 @@ public class ScenarioMaker : MonoBehaviour
                 */
             }
         }
+    }
+
+    public void LoadScenario()
+    {
+        // clear all tanks and target locations
+        if (player_tank_instance != null)
+        {
+            Destroy(player_tank_instance);
+            player_tank_instance = null;
+        }
+
+        for (int i = 0; i < enemy_tank_instances.Count; i++)
+        {
+            Destroy(enemy_tank_instances[i]);
+        }
+
+        for (int i = 0; i < target_location_instances.Count; i++)
+        {
+            for (int j = 0; j < target_location_instances[i].Count; j++)
+            {
+                Destroy(target_location_instances[i][j]);
+            }
+        }
+
+        enemy_tank_instances.Clear();
+        target_location_instances.Clear();
+
+        // spawn entities based on data from scenarioMakerUI
+        if (scenarioMakerUI.playerTankTransform != null)
+        {
+            GameObject new_tank = Instantiate(scenarioMakerUI.selectedTankPrefab, scenarioMakerUI.playerTankTransform.position, scenarioMakerUI.playerTankTransform.rotation);
+            new_tank.GetComponent<TankController>().enabled = false;
+            new_tank.GetComponentInChildren<Camera>().enabled = false;
+            new_tank.GetComponent<Rigidbody>().isKinematic = true;
+            new_tank.GetComponentInChildren<AudioListener>().enabled = false;
+            player_tank_instance = new_tank;
+        }
+
+        for (int i = 0; i < scenarioMakerUI.enemyTankEntries.Count; i++)
+        {
+            GameObject new_tank = Instantiate(Resources.Load<GameObject>(scenarioMakerUI.enemyTankEntries[i].tankPrefabName), scenarioMakerUI.enemyTankEntries[i].targetLocations[0].location.position, scenarioMakerUI.enemyTankEntries[i].targetLocations[0].location.rotation);
+            new_tank.GetComponent<TankController>().enabled = false;
+            new_tank.GetComponent<Rigidbody>().isKinematic = true;
+            enemy_tank_instances.Add(new_tank);
+
+            List<GameObject> target_location_instances_for_new_tank = new List<GameObject>();
+            target_location_instances.Add(target_location_instances_for_new_tank);
+
+            for (int j = 0; j < scenarioMakerUI.enemyTankEntries[i].targetLocations.Count; j++)
+            {
+                Vector3 hit_point = scenarioMakerUI.enemyTankEntries[i].targetLocations[j].location.position;
+                Color color = scenarioMakerUI.enemyTankEntries[i].color;
+                GameObject new_target_location = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                new_target_location.transform.position = hit_point;
+                new_target_location.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+                new_target_location.GetComponent<MeshRenderer>().material.color = color;
+                target_location_instances[i].Add(new_target_location);
+            }
+        }        
     }
 }

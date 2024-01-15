@@ -41,7 +41,8 @@ public class ScenarioMakerUI : MonoBehaviour
     [HideInInspector] public bool move_enemy = false;
     [HideInInspector] public bool move_target_location = false;
     [HideInInspector] public List<EnemyTankEntry> enemyTankEntries;
-    [HideInInspector] public Transform playerTankTransform;
+    [HideInInspector] public TransformTargetLocation playerTankTransform;
+
     ScenarioMaker scenarioMaker;
 
     [HideInInspector] public int enemyTankEntryIndex = -1;
@@ -183,21 +184,47 @@ public class ScenarioMakerUI : MonoBehaviour
 
     void SaveScenario()
     {
+        ScenarioData scenarioData = new ScenarioData();
+        scenarioData.enemy_tanks = enemyTankEntries;
+        scenarioData.player_tank = playerTankTransform;
+        scenarioData.map_name = loadedTerrainPrefab.name;
+
         int scenarioIndex = PlayerPrefs.GetInt("index", 0);
         scenarioIndex++;
         PlayerPrefs.SetInt("index", scenarioIndex);
-        
-        PlayerPrefs.SetString("scenario" + scenarioIndex, JsonUtility.ToJson(enemyTankEntries));
+        PlayerPrefs.SetString("scenario" + scenarioIndex, JsonUtility.ToJson(scenarioData));
 
         // also create a file
         string path = Application.dataPath + "/Scenarios/scenario" + scenarioIndex + ".json";
         System.IO.File.WriteAllText(path, JsonUtility.ToJson(enemyTankEntries));
     }
 
-    void LoadScenario(int index)
+    void LoadScenario()
     {
-        string json = PlayerPrefs.GetString("scenario" + index);
-        enemyTankEntries = JsonUtility.FromJson<List<EnemyTankEntry>>(json);
+        int scenarioIndex = PlayerPrefs.GetInt("scenario_to_load_index", 0);
+        string scenarioDataString = PlayerPrefs.GetString("scenario" + scenarioIndex, "");
+        ScenarioData scenarioData = JsonUtility.FromJson<ScenarioData>(scenarioDataString);
+
+        enemyTankEntries = scenarioData.enemy_tanks;
+        playerTankTransform = scenarioData.player_tank;
+
+        // load terrain
+        string terrainName = scenarioData.map_name;
+        for (int i = 0; i < terrainPrefabs.Length; i++)
+        {
+            if (terrainPrefabs[i].name == terrainName)
+            {
+                Destroy(loadedTerrainPrefab);
+                loadedTerrainPrefab = Instantiate(terrainPrefabs[i]);
+                loadedTerrainPrefab.transform.position = new Vector3(0, 0, 0);
+                loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
+                terrainDropdown.GetComponent<Dropdown>().value = i;
+                break;
+            }
+        }
+
+        scenarioMaker.LoadScenario();
+
         RefreshEnemyTankList();
     }
 
