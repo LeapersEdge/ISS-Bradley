@@ -110,7 +110,8 @@ public class ScenarioMaker : MonoBehaviour
                                 enemyTankEntry.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
 
                                 TargetLocation targetLocation = new TargetLocation();
-                                targetLocation.location = new_tank.transform;
+                                targetLocation.location.position = new_tank.transform.position;
+                                targetLocation.location.rotation = new_tank.transform.rotation;
                                 targetLocation.agressive = false;
                                 targetLocation.aimingAccuracyPercentageX = 0.5f;
                                 targetLocation.aimingAccuracyPercentageY = 0.5f;
@@ -120,7 +121,7 @@ public class ScenarioMaker : MonoBehaviour
                                 scenarioMakerUI.RefreshEnemyTankList();
 
                                 enemy_tank_instances.Add(new_tank);
-                                scenarioMakerUI.enemyTankEntryIndex += 1;
+                                scenarioMakerUI.enemyTankEntryIndex = enemy_tank_instances.Count - 1;
 
                                 List<GameObject> target_location_instances_for_new_tank = new List<GameObject>();
                                 target_location_instances.Add(target_location_instances_for_new_tank);
@@ -175,6 +176,7 @@ public class ScenarioMaker : MonoBehaviour
                             hit_point.y += 1f;
                             scenarioMakerUI.enemyTankEntries[index].targetLocations[0].location.position = hit_point;
                             scenarioMakerUI.enemyTankEntries[index].targetLocations[0].location.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            scenarioMakerUI.RefreshTargetLocationList();
 
                             enemy_tank_instances[index].transform.position = hit_point;
                             enemy_tank_instances[index].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
@@ -217,11 +219,10 @@ public class ScenarioMaker : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    scenarioMakerMode = ScenarioMakerMode.None;
-                    cursor_locked = false;
+                    cursor_locked = !cursor_locked;
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && cursor_locked)
                 {
                     if (scenarioMakerUI.move_target_location && 
                         scenarioMakerUI.targetLocationIndex != -1 &&
@@ -268,8 +269,8 @@ public class ScenarioMaker : MonoBehaviour
                             new_target_location.GetComponent<MeshRenderer>().material.color = color;
                             target_location_instances[tank_index].Add(new_target_location);
 
-                            scenarioMakerUI.AddTargetLocation(hit_point, new Vector3(0, transform.rotation.eulerAngles.y, 0));
-                            scenarioMakerUI.targetLocationIndex += 1;
+                            scenarioMakerUI.AddTargetLocation(hit_point, new Vector3(0, this.transform.rotation.eulerAngles.y, 0));
+                            scenarioMakerUI.targetLocationIndex = scenarioMakerUI.enemyTankEntries[tank_index].targetLocations.Count - 1;
                         }
                     }
                 }
@@ -278,14 +279,15 @@ public class ScenarioMaker : MonoBehaviour
                 {
                     if (scenarioMakerUI.targetLocationIndex != -1 &&
                         scenarioMakerUI.enemyTankEntryIndex != -1 &&
+                        scenarioMakerUI.targetLocationIndex != 0 &&
                         scenarioMakerUI.enemyTankEntryIndex < scenarioMakerUI.enemyTankEntries.Count &&
                         scenarioMakerUI.targetLocationIndex < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations.Count
                     )
                     {
                         int tank_index = scenarioMakerUI.enemyTankEntryIndex;
                         int target_location_index = scenarioMakerUI.targetLocationIndex;
-                        Destroy(target_location_instances[tank_index][target_location_index]);
-                        target_location_instances[tank_index].RemoveAt(target_location_index);
+                        Destroy(target_location_instances[tank_index][target_location_index - 1]);
+                        target_location_instances[tank_index].RemoveAt(target_location_index - 1);
 
                         scenarioMakerUI.enemyTankEntries[tank_index].targetLocations.RemoveAt(target_location_index);
                         scenarioMakerUI.RefreshTargetLocationList();

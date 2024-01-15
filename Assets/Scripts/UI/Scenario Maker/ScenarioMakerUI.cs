@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class ScenarioMakerUI : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ScenarioMakerUI : MonoBehaviour
     [SerializeField] public GameObject playerTankPrefab;
     [SerializeField] GameObject[] terrainPrefabs;
     [SerializeField] GameObject[] enemyTankPrefabs;
+    [SerializeField] GameObject singleButtonPrefab;    
     [SerializeField] GameObject buttonPrefab;    
     [Header("Left UI Elements")]
     [SerializeField] GameObject terrainDropdown;
@@ -135,10 +137,13 @@ public class ScenarioMakerUI : MonoBehaviour
         GameObject newEnemyTankButton = Instantiate(buttonPrefab);
         newEnemyTankButton.transform.SetParent(enemyTanksListContent.transform);
         newEnemyTankButton.transform.localScale = new Vector3(1, 1, 1);
-        newEnemyTankButton.GetComponentInChildren<Text>().text = name;
+        newEnemyTankButton.GetComponentsInChildren<Text>()[0].text = name;
+        newEnemyTankButton.GetComponentsInChildren<Text>()[1].text = "Target Locations";
         newEnemyTankButton.transform.name = index.ToString();
-        Button button = newEnemyTankButton.GetComponent<Button>();
-        button.onClick.AddListener(() => SelectEnemyTankButton(index));
+        Button button1 = newEnemyTankButton.GetComponentsInChildren<Button>()[0];
+        Button button2 = newEnemyTankButton.GetComponentsInChildren<Button>()[1];
+        button1.onClick.AddListener(() => SelectEnemyTankButton(index));
+        button2.onClick.AddListener(() => SelectEnemyTankForTargetLocationButton(index));
     }
 
     public void RefreshEnemyTankList()
@@ -160,7 +165,20 @@ public class ScenarioMakerUI : MonoBehaviour
     {
         enemyTankEntryIndex = index;
         scenarioMaker.scenarioMakerMode = ScenarioMakerMode.TankEdit;
+        rightUIPanel.SetActive(false);
+    }
+
+    public void SelectEnemyTankForTargetLocationButton(int index)
+    {
+        enemyTankEntryIndex = index;
+        targetLocationIndex = -1;        
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.LocationEdit;
         scenarioMaker.cursor_locked = true;
+        leftUIPanel.SetActive(false);
+        hiddenUIPanel.SetActive(true);
+        targetLocationIndex = 0;
+        RefreshTargetLocationList();
+        rightUIPanel.SetActive(true);
     }
 
     void SaveScenario()
@@ -184,22 +202,86 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void RefreshTargetLocationList()
     {
+        // delete all children of targetLocationsListContent
+        foreach (Transform child in targetLocationsListContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
 
+        // add new children
+        for (int i = 0; i < enemyTankEntries[enemyTankEntryIndex].targetLocations.Count; i++)
+        {
+            AddTargetLocationUIElement(i);
+        }
+
+        SelectTargetLocationButton(targetLocationIndex);
+    }
+
+    public void AddTargetLocationUIElement(int index)
+    {
+        GameObject newTargetLocationButton = Instantiate(singleButtonPrefab);
+        newTargetLocationButton.transform.SetParent(targetLocationsListContent.transform);
+        newTargetLocationButton.transform.localScale = new Vector3(1, 1, 1);
+        newTargetLocationButton.GetComponentInChildren<Text>().text = "Target Location " + index;
+        newTargetLocationButton.transform.name = index.ToString();
+        Button button = newTargetLocationButton.GetComponentInChildren<Button>();
+        button.onClick.AddListener(() => SelectTargetLocationButton(index));
+    }
+
+    public void SelectTargetLocationButton(int index)
+    {
+        targetLocationIndex = index;
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.LocationEdit;
+        scenarioMaker.cursor_locked = true;
+        rightUIPanel.SetActive(true);
+
+        // update UI
+        agressiveTargetLocationToggle.GetComponent<Toggle>().isOn = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].agressive;
+        accuracyXText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].aimingAccuracyPercentageX.ToString();
+        accuracyYText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].aimingAccuracyPercentageY.ToString();
+        positionXText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.x.ToString();
+        positionYText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.y.ToString();
+        positionZText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.z.ToString();
+        rotationXText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.x.ToString();
+        rotationYText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.y.ToString();
+        rotationZText.GetComponent<InputField>().text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.z.ToString();
     }
 
     public void AddTargetLocation(Vector3 position, Vector3 rotation)
     {
-
+        TargetLocation newTargetLocation = new TargetLocation();
+        newTargetLocation.location.position = position;
+        newTargetLocation.location.rotation = Quaternion.Euler(rotation);
+        newTargetLocation.aimingAccuracyPercentageX = 0.5f;
+        newTargetLocation.aimingAccuracyPercentageY = 0.5f;
+        newTargetLocation.agressive = false;
+        enemyTankEntries[enemyTankEntryIndex].targetLocations.Add(newTargetLocation);
+        RefreshTargetLocationList();
     }
 
     public void DeleteTargetLocation()
     {
-
+        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        {
+            enemyTankEntries[enemyTankEntryIndex].targetLocations.RemoveAt(targetLocationIndex);
+            RefreshTargetLocationList();
+        }
+        else
+        {
+            Debug.LogError("DeleteTargetLocation at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
+        }
     }
 
     public void ToggleAgressiveTargetLocation()
     {
-
+        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        {
+            enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].agressive = agressiveTargetLocationToggle.GetComponent<Toggle>().isOn;
+        }
+        else
+        {
+            Debug.LogError("ToggleAgressiveTargetLocation at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
+        }
     }
 
     public void MoveTargetLocationPositionToNextClick()
@@ -209,7 +291,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void UpdateAimAccuracyX()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updateainaccuracyX at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -257,7 +339,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void UpdateAimAccuracyY()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updateainaccuracyY at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -307,7 +389,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void UpdatePositionX()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updatepositionX at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -354,14 +436,19 @@ public class ScenarioMakerUI : MonoBehaviour
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.x.ToString();
         }
     
-        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        if (targetLocationIndex == 0)
+        {
+            return;
+        }
+
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position;
         position.x = newPositionX;
-        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position = position;
     }
 
     public void UpdatePositionY()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updatepositionY at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -408,14 +495,19 @@ public class ScenarioMakerUI : MonoBehaviour
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.y.ToString();
         }
     
-        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        if (targetLocationIndex == 0)
+        {
+            return;
+        }
+
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position;
         position.y = newPositionY;
-        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position = position;
     }
 
     public void UpdatePositionZ()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updatepositionZ at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -462,14 +554,19 @@ public class ScenarioMakerUI : MonoBehaviour
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.z.ToString();
         }
     
-        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        if (targetLocationIndex == 0)
+        {
+            return;
+        }
+
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position;
         position.z = newPositionZ;
-        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex - 1].transform.position = position;
     }
 
     public void UpdateRotationX()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updaterotationX at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -516,6 +613,11 @@ public class ScenarioMakerUI : MonoBehaviour
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.x.ToString();
         }
     
+        if (targetLocationIndex == 0)
+        {
+            return;
+        }
+
         Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
         rotation.x = newRotationX;
         scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
@@ -523,7 +625,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void UpdateRotationY()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updaterotationY at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -570,6 +672,11 @@ public class ScenarioMakerUI : MonoBehaviour
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.y.ToString();
         }
     
+        if (targetLocationIndex == 0)
+        {
+            return;
+        }
+
         Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
         rotation.y = newRotationY;
         scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
@@ -577,7 +684,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void UpdateRotationZ()
     {
-        if (enemyTankEntryIndex != -1 && targetLocationIndex != -1)
+        if (enemyTankEntryIndex == -1 || targetLocationIndex == -1)
         {
             Debug.LogError("updaterotationZ at scenariomakerUI.cs was called with wrong entry indexes with values: " + enemyTankEntryIndex + " " + targetLocationIndex);
             return;
@@ -622,6 +729,11 @@ public class ScenarioMakerUI : MonoBehaviour
         {
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.z.ToString();
+        }
+
+        if (targetLocationIndex == 0)
+        {
+            return;
         }
 
         Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
