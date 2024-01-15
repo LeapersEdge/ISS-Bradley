@@ -130,15 +130,15 @@ public class ScenarioMakerUI : MonoBehaviour
         hiddenUIPanel.SetActive(true);
     }
 
-    public void AddEnemyTankUIElement(String name)
+    public void AddEnemyTankUIElement(String name, int index)
     {
         GameObject newEnemyTankButton = Instantiate(buttonPrefab);
         newEnemyTankButton.transform.SetParent(enemyTanksListContent.transform);
         newEnemyTankButton.transform.localScale = new Vector3(1, 1, 1);
         newEnemyTankButton.GetComponentInChildren<Text>().text = name;
-        newEnemyTankButton.transform.name = enemyTankEntries.Count.ToString();
+        newEnemyTankButton.transform.name = index.ToString();
         Button button = newEnemyTankButton.GetComponent<Button>();
-        button.onClick.AddListener(() => SelectEnemyTankButton(enemyTankEntries.Count - 1));
+        button.onClick.AddListener(() => SelectEnemyTankButton(index));
     }
 
     public void RefreshEnemyTankList()
@@ -152,7 +152,7 @@ public class ScenarioMakerUI : MonoBehaviour
         // add new children
         for (int i = 0; i < enemyTankEntries.Count; i++)
         {
-            AddEnemyTankUIElement(enemyTankEntries[i].tankPrefabName);
+            AddEnemyTankUIElement(enemyTankEntries[i].tankPrefabName, i);
         }
     }
 
@@ -160,6 +160,7 @@ public class ScenarioMakerUI : MonoBehaviour
     {
         enemyTankEntryIndex = index;
         scenarioMaker.scenarioMakerMode = ScenarioMakerMode.TankEdit;
+        scenarioMaker.cursor_locked = true;
     }
 
     void SaveScenario()
