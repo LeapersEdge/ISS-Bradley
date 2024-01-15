@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/dev-scenario maker.unity
+    guid: 4628dfd4eab7c4e139d290a3de63e689
   m_configObjects: {}

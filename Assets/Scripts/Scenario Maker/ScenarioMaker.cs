@@ -15,7 +15,7 @@ public class ScenarioMaker : MonoBehaviour
 
     GameObject player_tank_instance = null;
     List<GameObject> enemy_tank_instances = new List<GameObject>();
-    List<List<GameObject>> target_location_instances = new List<List<GameObject>>();
+    [HideInInspector] public List<List<GameObject>> target_location_instances = new List<List<GameObject>>();
 
     public ScenarioMakerMode scenarioMakerMode = ScenarioMakerMode.None;
 
@@ -51,6 +51,20 @@ public class ScenarioMaker : MonoBehaviour
 
     void Update()
     {
+        if (cursor_locked)
+        {
+
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
+            crosshairUIPanel.SetActive(true);
+        }
+        else
+        {
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+            crosshairUIPanel.SetActive(false);
+        }  
+
         switch (scenarioMakerMode)
         {
             case ScenarioMakerMode.None:
@@ -106,7 +120,10 @@ public class ScenarioMaker : MonoBehaviour
                                 scenarioMakerUI.RefreshEnemyTankList();
 
                                 enemy_tank_instances.Add(new_tank);
-                                scenarioMakerUI.selected_enemy_index += 1;
+                                scenarioMakerUI.enemyTankEntryIndex += 1;
+
+                                List<GameObject> target_location_instances_for_new_tank = new List<GameObject>();
+                                target_location_instances.Add(target_location_instances_for_new_tank);
                             }
                             else if (player_tank_instance == null)
                             {
@@ -115,6 +132,7 @@ public class ScenarioMaker : MonoBehaviour
                                 new_tank.GetComponent<TankController>().enabled = false;
                                 new_tank.GetComponentInChildren<Camera>().enabled = false;
                                 new_tank.GetComponent<Rigidbody>().isKinematic = true;
+                                new_tank.GetComponentInChildren<AudioListener>().enabled = false;
                                 scenarioMakerUI.playerTankTransform = new_tank.transform;
                                 player_tank_instance = new_tank;
                             }
@@ -148,11 +166,11 @@ public class ScenarioMaker : MonoBehaviour
                             player_tank_instance.transform.position = hit_point;
                             player_tank_instance.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                         }
-                        else if (scenarioMakerUI.move_enemy && scenarioMakerUI.selected_enemy_index != -1 && scenarioMakerUI.selected_enemy_index < enemy_tank_instances.Count)
+                        else if (scenarioMakerUI.move_enemy && scenarioMakerUI.enemyTankEntryIndex != -1 && scenarioMakerUI.enemyTankEntryIndex < enemy_tank_instances.Count)
                         {
                             scenarioMakerUI.move_enemy = false;
 
-                            int index = scenarioMakerUI.selected_enemy_index;
+                            int index = scenarioMakerUI.enemyTankEntryIndex;
                             Vector3 hit_point = hit.point;
                             hit_point.y += 1f;
                             scenarioMakerUI.enemyTankEntries[index].targetLocations[0].location.position = hit_point;
@@ -174,9 +192,9 @@ public class ScenarioMaker : MonoBehaviour
                         Destroy(player_tank_instance);
                     }
                     // check if selected tank is enemy tank
-                    else if (scenarioMakerUI.selected_enemy_index != -1 && scenarioMakerUI.selected_enemy_index < enemy_tank_instances.Count)
+                    else if (scenarioMakerUI.enemyTankEntryIndex != -1 && scenarioMakerUI.enemyTankEntryIndex < enemy_tank_instances.Count)
                     {
-                        int index = scenarioMakerUI.selected_enemy_index;
+                        int index = scenarioMakerUI.enemyTankEntryIndex;
                         Destroy(enemy_tank_instances[index]);
                         enemy_tank_instances.RemoveAt(index);
 
@@ -189,7 +207,7 @@ public class ScenarioMaker : MonoBehaviour
                         scenarioMakerUI.enemyTankEntries.RemoveAt(index);
                         scenarioMakerUI.RefreshEnemyTankList();
 
-                        scenarioMakerUI.selected_enemy_index -= 1;
+                        scenarioMakerUI.enemyTankEntryIndex -= 1;
                     }
                 }
 
@@ -206,33 +224,33 @@ public class ScenarioMaker : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     if (scenarioMakerUI.move_target_location && 
-                        scenarioMakerUI.selected_target_location_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index < enemy_tank_instances.Count && 
-                        scenarioMakerUI.selected_target_location_index < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.selected_enemy_index].targetLocations.Count 
+                        scenarioMakerUI.targetLocationIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex < enemy_tank_instances.Count && 
+                        scenarioMakerUI.targetLocationIndex < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations.Count 
                     )
                     {
                         scenarioMakerUI.move_target_location = false;
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position, transform.forward, out hit, 1000f))
                         {
-                            int index = scenarioMakerUI.selected_target_location_index;
+                            int index = scenarioMakerUI.targetLocationIndex;
                             Vector3 hit_point = hit.point;
                             hit_point.y += 0.5f;
-                            scenarioMakerUI.enemyTankEntries[scenarioMakerUI.selected_enemy_index].targetLocations[index].location.position = hit_point;
-                            scenarioMakerUI.enemyTankEntries[scenarioMakerUI.selected_enemy_index].targetLocations[index].location.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations[index].location.position = hit_point;
+                            scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations[index].location.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
-                            enemy_tank_instances[scenarioMakerUI.selected_enemy_index].transform.position = hit_point;
-                            enemy_tank_instances[scenarioMakerUI.selected_enemy_index].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.position = hit_point;
+                            enemy_tank_instances[scenarioMakerUI.enemyTankEntryIndex].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
-                            target_location_instances[scenarioMakerUI.selected_enemy_index][index].transform.position = hit_point;
-                            target_location_instances[scenarioMakerUI.selected_enemy_index][index].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index].transform.position = hit_point;
+                            target_location_instances[scenarioMakerUI.enemyTankEntryIndex][index].transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                         }
                     }
-                    else if ( scenarioMakerUI.selected_target_location_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index < scenarioMakerUI.enemyTankEntries.Count &&
-                        scenarioMakerUI.selected_target_location_index < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.selected_enemy_index].targetLocations.Count    
+                    else if ( scenarioMakerUI.targetLocationIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex < scenarioMakerUI.enemyTankEntries.Count &&
+                        scenarioMakerUI.targetLocationIndex < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations.Count    
                     )
                     {
                         RaycastHit hit;
@@ -242,7 +260,7 @@ public class ScenarioMaker : MonoBehaviour
                             Vector3 hit_point = hit.point;
                             hit_point.y += 0.5f;
 
-                            int tank_index = scenarioMakerUI.selected_enemy_index;
+                            int tank_index = scenarioMakerUI.enemyTankEntryIndex;
                             Color color = scenarioMakerUI.enemyTankEntries[tank_index].color;
                             GameObject new_target_location = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                             new_target_location.transform.position = hit_point;
@@ -251,28 +269,28 @@ public class ScenarioMaker : MonoBehaviour
                             target_location_instances[tank_index].Add(new_target_location);
 
                             scenarioMakerUI.AddTargetLocation(hit_point, new Vector3(0, transform.rotation.eulerAngles.y, 0));
-                            scenarioMakerUI.selected_target_location_index += 1;
+                            scenarioMakerUI.targetLocationIndex += 1;
                         }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Delete))
                 {
-                    if (scenarioMakerUI.selected_target_location_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index != -1 &&
-                        scenarioMakerUI.selected_enemy_index < scenarioMakerUI.enemyTankEntries.Count &&
-                        scenarioMakerUI.selected_target_location_index < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.selected_enemy_index].targetLocations.Count
+                    if (scenarioMakerUI.targetLocationIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex != -1 &&
+                        scenarioMakerUI.enemyTankEntryIndex < scenarioMakerUI.enemyTankEntries.Count &&
+                        scenarioMakerUI.targetLocationIndex < scenarioMakerUI.enemyTankEntries[scenarioMakerUI.enemyTankEntryIndex].targetLocations.Count
                     )
                     {
-                        int tank_index = scenarioMakerUI.selected_enemy_index;
-                        int target_location_index = scenarioMakerUI.selected_target_location_index;
+                        int tank_index = scenarioMakerUI.enemyTankEntryIndex;
+                        int target_location_index = scenarioMakerUI.targetLocationIndex;
                         Destroy(target_location_instances[tank_index][target_location_index]);
                         target_location_instances[tank_index].RemoveAt(target_location_index);
 
                         scenarioMakerUI.enemyTankEntries[tank_index].targetLocations.RemoveAt(target_location_index);
                         scenarioMakerUI.RefreshTargetLocationList();
 
-                        scenarioMakerUI.selected_target_location_index -= 1;
+                        scenarioMakerUI.targetLocationIndex -= 1;
                     }
                 }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,7 @@ public class ScenarioMakerUI : MonoBehaviour
     [SerializeField] public GameObject playerTankPrefab;
     [SerializeField] GameObject[] terrainPrefabs;
     [SerializeField] GameObject[] enemyTankPrefabs;
-    [SerializeField] GameObject enemyTankButtonPrefab;
-    [SerializeField] GameObject targetLocationButtonPrefab;
-    
+    [SerializeField] GameObject buttonPrefab;    
     [Header("Left UI Elements")]
     [SerializeField] GameObject terrainDropdown;
     [SerializeField] GameObject enemyTanksDropdown;
@@ -28,20 +27,23 @@ public class ScenarioMakerUI : MonoBehaviour
     [SerializeField] GameObject rotationXText;
     [SerializeField] GameObject rotationYText;
     [SerializeField] GameObject rotationZText;
+    [Header("Big UI Pannels")]
+    [SerializeField] GameObject leftUIPanel;
+    [SerializeField] GameObject rightUIPanel;
+    [SerializeField] GameObject hiddenUIPanel;
 
     GameObject loadedTerrainPrefab;
     [HideInInspector] public GameObject selectedTankPrefab;
 
     [HideInInspector] public bool move_player = false;
     [HideInInspector] public bool move_enemy = false;
-    [HideInInspector] public int selected_enemy_index = -1;
     [HideInInspector] public bool move_target_location = false;
-    [HideInInspector] public int selected_target_location_index = -1;
     [HideInInspector] public List<EnemyTankEntry> enemyTankEntries;
     [HideInInspector] public Transform playerTankTransform;
+    ScenarioMaker scenarioMaker;
 
-    int enemyTankEntryIndex = -1;
-    int targetLocationIndex = -1;
+    [HideInInspector] public int enemyTankEntryIndex = -1;
+    [HideInInspector] public int targetLocationIndex = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,18 @@ public class ScenarioMakerUI : MonoBehaviour
         loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
         terrainDropdown.GetComponent<Dropdown>().value = 0;
         enemyTanksDropdown.GetComponent<Dropdown>().value = 0;
+
+        scenarioMaker = FindObjectOfType<ScenarioMaker>().GetComponent<ScenarioMaker>();
+
+        Dropdown areasDropdown = terrainDropdown.GetComponent<Dropdown>();
+        areasDropdown.ClearOptions();
+        for (int i = 0; i < terrainPrefabs.Length; i++)
+            areasDropdown.options.Add(new Dropdown.OptionData(terrainPrefabs[i].name));
+
+        Dropdown enemyDropdown = enemyTanksDropdown.GetComponent<Dropdown>();
+        enemyDropdown.ClearOptions();
+        for (int i = 0; i < enemyTankPrefabs.Length; i++)
+            enemyDropdown.options.Add(new Dropdown.OptionData(enemyTankPrefabs[i].name));
     }
 
     // Update is called once per frame
@@ -66,6 +80,15 @@ public class ScenarioMakerUI : MonoBehaviour
     public void SelectPlayerTankButton()
     {
         selectedTankPrefab = playerTankPrefab;
+
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.Freeroaming;
+        scenarioMaker.cursor_locked = true;
+        leftUIPanel.SetActive(false);
+        rightUIPanel.SetActive(false);
+        hiddenUIPanel.SetActive(true);
+
+        enemyTankEntryIndex = -1;
+        targetLocationIndex = -1;
     }
 
     public void SelectMoveAboveSelectedButton()
@@ -78,6 +101,12 @@ public class ScenarioMakerUI : MonoBehaviour
         {
             move_enemy = true;
         }
+
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.TankEdit;
+        scenarioMaker.cursor_locked = true;
+        leftUIPanel.SetActive(false);
+        rightUIPanel.SetActive(false);
+        hiddenUIPanel.SetActive(true);
     }
 
     public void ChangeTerrainOnDropdown()
@@ -93,11 +122,44 @@ public class ScenarioMakerUI : MonoBehaviour
     {
         int newIndex = enemyTanksDropdown.GetComponent<Dropdown>().value;
         selectedTankPrefab = enemyTankPrefabs[newIndex];
+
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.Freeroaming;
+        scenarioMaker.cursor_locked = true;
+        leftUIPanel.SetActive(false);
+        rightUIPanel.SetActive(false);
+        hiddenUIPanel.SetActive(true);
+    }
+
+    public void AddEnemyTankUIElement(String name)
+    {
+        GameObject newEnemyTankButton = Instantiate(buttonPrefab);
+        newEnemyTankButton.transform.SetParent(enemyTanksListContent.transform);
+        newEnemyTankButton.transform.localScale = new Vector3(1, 1, 1);
+        newEnemyTankButton.GetComponentInChildren<Text>().text = name;
+        newEnemyTankButton.transform.name = enemyTankEntries.Count.ToString();
+        Button button = newEnemyTankButton.GetComponent<Button>();
+        button.onClick.AddListener(() => SelectEnemyTankButton(enemyTankEntries.Count - 1));
     }
 
     public void RefreshEnemyTankList()
     {
-        
+        // delete all children of enemyTanksListContent
+        foreach (Transform child in enemyTanksListContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // add new children
+        for (int i = 0; i < enemyTankEntries.Count; i++)
+        {
+            AddEnemyTankUIElement(enemyTankEntries[i].tankPrefabName);
+        }
+    }
+
+    public void SelectEnemyTankButton(int index)
+    {
+        enemyTankEntryIndex = index;
+        scenarioMaker.scenarioMakerMode = ScenarioMakerMode.TankEdit;
     }
 
     void SaveScenario()
@@ -121,7 +183,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void RefreshTargetLocationList()
     {
-        
+
     }
 
     public void AddTargetLocation(Vector3 position, Vector3 rotation)
@@ -141,7 +203,7 @@ public class ScenarioMakerUI : MonoBehaviour
 
     public void MoveTargetLocationPositionToNextClick()
     {
-
+        
     }
 
     public void UpdateAimAccuracyX()
@@ -290,6 +352,10 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.x.ToString();
         }
+    
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        position.x = newPositionX;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
     }
 
     public void UpdatePositionY()
@@ -340,6 +406,10 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.y.ToString();
         }
+    
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        position.y = newPositionY;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
     }
 
     public void UpdatePositionZ()
@@ -390,6 +460,10 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.position.z.ToString();
         }
+    
+        Vector3 position = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position;
+        position.z = newPositionZ;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.position = position;
     }
 
     public void UpdateRotationX()
@@ -440,6 +514,10 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.x.ToString();
         }
+    
+        Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
+        rotation.x = newRotationX;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
     }
 
     public void UpdateRotationY()
@@ -490,6 +568,10 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.y.ToString();
         }
+    
+        Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
+        rotation.y = newRotationY;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
     }
 
     public void UpdateRotationZ()
@@ -540,5 +622,9 @@ public class ScenarioMakerUI : MonoBehaviour
             // restoring old value if such value exists
             inputField.text = enemyTankEntries[enemyTankEntryIndex].targetLocations[targetLocationIndex].location.rotation.eulerAngles.z.ToString();
         }
+
+        Vector3 rotation = scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation.eulerAngles;
+        rotation.z = newRotationZ;
+        scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
     }
 }

@@ -178,6 +178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6268292374314264426}
+  - component: {fileID: 4058013859748512857}
+  - component: {fileID: 2859615788797100978}
   m_Layer: 0
   m_Name: T34
   m_TagString: Untagged
@@ -195,8 +197,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.00092662906, y: 0.00013827134, z: -0.00149057, w: 0.9999985}
   m_LocalPosition: {x: -503.35315, y: -0.0024421215, z: 35.526455}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3855410337796500331}
   - {fileID: 6469638832734272299}
@@ -204,6 +206,63 @@ Transform:
   - {fileID: 1261031368218943275}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.106, y: 0.016, z: -0.171}
+--- !u!54 &4058013859748512857
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319930635296542956}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2859615788797100978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319930635296542956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b7c6cdd0de559d78dedd6349740f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilesParentName: Projectiles
+  tankHead: {fileID: 0}
+  tankShellPrefab: {fileID: 0}
+  tankShellSpawnLocation: {fileID: 0}
+  tankBarrel: {fileID: 0}
+  barrelFireParicle: {fileID: 0}
+  speed: 125
+  turnSpeed: 125
+  shellSpeed: 125
+  headTurnSpeed: 75
+  barrelTurnSpeed: 45
+  barrelMinAngle: -10
+  barrelMaxAngle: 45
+  horizontal: 0
+  vertical: 0
+  horizontalHat: 0
+  verticalHat: 0
+  fire: 0
 --- !u!1 &4560402386779410490
 GameObject:
   m_ObjectHideFlags: 0

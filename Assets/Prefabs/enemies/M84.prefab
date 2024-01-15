@@ -1276,6 +1276,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826026974739846186}
+  - component: {fileID: 2128788714373933722}
+  - component: {fileID: 4742140364749805356}
   m_Layer: 0
   m_Name: M84
   m_TagString: Untagged
@@ -1301,6 +1303,63 @@ Transform:
   - {fileID: 4852967201597535598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2128788714373933722
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527090538538371826}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4742140364749805356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527090538538371826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b7c6cdd0de559d78dedd6349740f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilesParentName: Projectiles
+  tankHead: {fileID: 0}
+  tankShellPrefab: {fileID: 0}
+  tankShellSpawnLocation: {fileID: 0}
+  tankBarrel: {fileID: 0}
+  barrelFireParicle: {fileID: 0}
+  speed: 125
+  turnSpeed: 125
+  shellSpeed: 125
+  headTurnSpeed: 75
+  barrelTurnSpeed: 45
+  barrelMinAngle: -10
+  barrelMaxAngle: 45
+  horizontal: 0
+  vertical: 0
+  horizontalHat: 0
+  verticalHat: 0
+  fire: 0
 --- !u!1 &3071391209719642196
 GameObject:
   m_ObjectHideFlags: 0
