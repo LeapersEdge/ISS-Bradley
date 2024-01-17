@@ -16,5 +16,5 @@ public class TargetLocation
 public class TransformTargetLocation
 {
     public Vector3 position = Vector3.zero;
-    public Quaternion rotation =Quaternion.identity;
+    public Quaternion rotation = Quaternion.identity;
 }

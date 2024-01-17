@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientSkyColor: {r: 0.55304724, g: 0.75002486, b: 0.44695276, a: 1}
+  m_AmbientEquatorColor: {r: 0.55304724, g: 0.75002486, b: 0.44695276, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312585, g: 0.3807451, b: 0.358728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1033662536
 Light:
   m_ObjectHideFlags: 0
@@ -217,6 +217,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1204260932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204260933}
+  - component: {fileID: 1204260934}
+  m_Layer: 0
+  m_Name: Scenario Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204260933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204260932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204260934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204260932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b09f54ca3b6edc2b643ea0b2d47b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTank: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  enemyTanks:
+  - {fileID: 1671883808355824764, guid: 5996a8bfae0772547a3a2b7acb290a84, type: 3}
+  - {fileID: 2527090538538371826, guid: c9a132c2ce52c8e4d8a6967e43edb914, type: 3}
+  - {fileID: 4319930635296542956, guid: f7f3838f6ae4b204481e0d87c1d3c168, type: 3}
+  - {fileID: 440583173170883338, guid: 7791b2a9b6b77ca48969e95c24735650, type: 3}
+  maps:
+  - {fileID: 723917140669615581, guid: ddeb93399aae3f9fdae7160886259864, type: 3}
+  - {fileID: 67547698887899936, guid: 0291da93ec61f3f41bd5c91f6e89ef93, type: 3}
+  - {fileID: 6078311411777518016, guid: 7162ac222707b0f4581797af7adea4c4, type: 3}
 --- !u!1 &2049252080
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,3 +369,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 2049252083}
   - {fileID: 1033662537}
+  - {fileID: 1204260933}
