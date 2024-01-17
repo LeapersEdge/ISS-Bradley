@@ -51,6 +51,9 @@ public class ScenarioMakerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // significantly increase render distance so that trees in the terrain are visible
+        QualitySettings.lodBias = 10.0f;
+
         loadedTerrainPrefab = Instantiate(terrainPrefabs[0]);
         loadedTerrainPrefab.transform.position = new Vector3(0, 0, 0);
         loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -119,6 +122,20 @@ public class ScenarioMakerUI : MonoBehaviour
         loadedTerrainPrefab = Instantiate(terrainPrefabs[newIndex]);
         loadedTerrainPrefab.transform.position = new Vector3(0, 0, 0);
         loadedTerrainPrefab.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        // if terrain that is instantiated is named "houses_terrain" in terrainPrefabs, turn on fog, else turn it off
+        if (terrainPrefabs[newIndex].name == "houses_terrain")
+        {
+            RenderSettings.fog = true;
+            // reduce render distance
+            QualitySettings.lodBias = 1.0f;
+        }
+        else
+        {
+            RenderSettings.fog = false;
+            // increase render distance
+            QualitySettings.lodBias = 10.0f;
+        }
     }
 
     public void ChangeEnemyTankOnDropdown()
