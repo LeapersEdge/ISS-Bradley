@@ -803,4 +803,14 @@ public class ScenarioMakerUI : MonoBehaviour
         rotation.z = newRotationZ;
         scenarioMaker.target_location_instances[enemyTankEntryIndex][targetLocationIndex].transform.rotation = Quaternion.Euler(rotation);
     }
+
+    public void SaveScenarioButton()
+    {
+        SaveScenario();
+    }
+
+    public void ExitButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }
