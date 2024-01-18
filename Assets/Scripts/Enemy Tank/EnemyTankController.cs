@@ -15,34 +15,18 @@ public class EnemyTankController : MonoBehaviour
     [SerializeField] float barrelTurnSpeed = 45f;
     [SerializeField] float barrelMinAngle = -10f;
     [SerializeField] float barrelMaxAngle = 45f;
-    
+    [SerializeField] bool move_head_vertically = false;
+    [Header("Tank Parts")]
+    [SerializeField] Transform head_pivot;
 
     public TargetLocation[] targetLocations;
     private TankController controller;
-    TargetLocation targetLocation, targetLocation1, targetLocation2, targetLocation3;
-    private Transform childObject;
 
     private int currentTargetIndex = 0;
-    private int lastTargetIndex = -1;
-    private float movingCooldown = 2.0f;
     bool waiting = false;
 
     void Start()
     {
-        targetLocations = new TargetLocation[3];
-        targetLocation1 = new TargetLocation();
-        targetLocation2 = new TargetLocation();
-        targetLocation3 = new TargetLocation();
-        targetLocation = new TargetLocation();
-
-        targetLocation1.location.position = new Vector3(20f, 1f, 20f);
-        targetLocation2.location.position = new Vector3(30f, 1f, 30f);
-        targetLocation3.location.position = new Vector3(40f, 1f, 40f);
-        targetLocations[0] = targetLocation1;
-        targetLocations[1] = targetLocation2;
-        targetLocations[2] = targetLocation3;
-        Debug.Log(targetLocations[0]);
-        childObject = transform.Find("head pivot");
         controller = GetComponent<TankController>();
         controller.speed = speed;
         controller.turnSpeed = turnSpeed;
@@ -51,13 +35,11 @@ public class EnemyTankController : MonoBehaviour
         controller.barrelTurnSpeed = barrelTurnSpeed;
         controller.barrelMinAngle = barrelMinAngle;
         controller.barrelMaxAngle = barrelMaxAngle;
-        targetLocation = targetLocations[0];
         controller.horizontalHat = 0;
         controller.verticalHat = 0;
         controller.vertical = 0;
         controller.horizontal = 0;
         controller.fire = false;
-
     }
 
     void Update()
@@ -69,11 +51,11 @@ public class EnemyTankController : MonoBehaviour
 
     void RotateHeadToTarget()
     {
-        Quaternion targetRotation = targetLocation.location.rotation;
-        float angle = Quaternion.Angle(childObject.rotation, targetRotation);
+        Quaternion targetRotation = targetLocations[currentTargetIndex].location.rotation;
+        float angle = Quaternion.Angle(head_pivot.rotation, targetRotation);
 
         // Determine the sign of the angle using the dot product of forward vectors
-        Vector3 forwardA = childObject.forward;
+        Vector3 forwardA = head_pivot.forward;
         Vector3 forwardB = targetRotation * Vector3.forward;
         int horizontalInput = (int)Mathf.Sign(Vector3.Dot(Vector3.up, Vector3.Cross(forwardA, forwardB)));
 
@@ -89,15 +71,16 @@ public class EnemyTankController : MonoBehaviour
 
     void MoveToTarget()
     {
-        Vector3 directionToTarget = targetLocation.location.position - transform.position;
+        Vector3 directionToTarget = targetLocations[currentTargetIndex].location.position - transform.position;
         float distanceToTarget = directionToTarget.magnitude;
         float angleToTarget = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-        int horizontalInput = (int)Mathf.Sign(angleToTarget);
+
         if (Math.Abs(distanceToTarget) > 7f)
         {
             controller.vertical = 1;
             if (Math.Abs(angleToTarget) > 5f)
             {
+                int horizontalInput = (int)Mathf.Sign(angleToTarget);
                 controller.horizontal = horizontalInput;
             }
             else
@@ -113,7 +96,6 @@ public class EnemyTankController : MonoBehaviour
             waiting = true;
 
             currentTargetIndex = (currentTargetIndex + 1) % targetLocations.Length;
-            SetNextTarget();
 
             StartCoroutine(WaitForNextMove());
         }
@@ -121,13 +103,8 @@ public class EnemyTankController : MonoBehaviour
 
     IEnumerator WaitForNextMove()
     {
-        yield return new WaitForSeconds(movingCooldown);
+        yield return new WaitForSeconds(targetLocations[currentTargetIndex].cooldownAfterAction);
         waiting = false;
-    }
-
-    void SetNextTarget()
-    {
-        targetLocation = targetLocations[currentTargetIndex];
     }
 }
 
