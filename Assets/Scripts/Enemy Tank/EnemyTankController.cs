@@ -23,8 +23,9 @@ public class EnemyTankController : MonoBehaviour
     private Transform childObject;
 
     private int currentTargetIndex = 0;
-    private float currentMovingCooldown = 100f;
-    private float movingCooldown = 100f;
+    private int lastTargetIndex = -1;
+    private float movingCooldown = 2.0f;
+    bool waiting = false;
 
     void Start()
     {
@@ -62,20 +63,19 @@ public class EnemyTankController : MonoBehaviour
     void Update()
     {
         RotateHeadToTarget();
-        MoveToTarget();
+        if (!waiting)
+            MoveToTarget();
     }
 
     void RotateHeadToTarget()
     {
         Quaternion targetRotation = targetLocation.location.rotation;
-
         float angle = Quaternion.Angle(childObject.rotation, targetRotation);
 
         // Determine the sign of the angle using the dot product of forward vectors
         Vector3 forwardA = childObject.forward;
         Vector3 forwardB = targetRotation * Vector3.forward;
         int horizontalInput = (int)Mathf.Sign(Vector3.Dot(Vector3.up, Vector3.Cross(forwardA, forwardB)));
-
 
         if (Math.Abs(angle) > 1f)
         {
@@ -91,63 +91,43 @@ public class EnemyTankController : MonoBehaviour
     {
         Vector3 directionToTarget = targetLocation.location.position - transform.position;
         float distanceToTarget = directionToTarget.magnitude;
-        
-
-      
         float angleToTarget = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-
-
- 
         int horizontalInput = (int)Mathf.Sign(angleToTarget);
-
-
         if (Math.Abs(distanceToTarget) > 7f)
         {
             controller.vertical = 1;
-
             if (Math.Abs(angleToTarget) > 5f)
             {
-
                 controller.horizontal = horizontalInput;
             }
             else
             {
                 controller.horizontal = 0;
             }
-        }else
+        }
+        else
         {
-            //Debug.Log("ahah");
             controller.vertical = 0;
             controller.horizontal = 0;
-            
-            if (CanMove())
-            {
-                currentTargetIndex = (currentTargetIndex + 1) % targetLocations.Length;
-                SetNextTarget();
-            }
-        }
 
+            waiting = true;
+
+            currentTargetIndex = (currentTargetIndex + 1) % targetLocations.Length;
+            SetNextTarget();
+
+            StartCoroutine(WaitForNextMove());
+        }
+    }
+
+    IEnumerator WaitForNextMove()
+    {
+        yield return new WaitForSeconds(movingCooldown);
+        waiting = false;
     }
 
     void SetNextTarget()
     {
         targetLocation = targetLocations[currentTargetIndex];
     }
-
-    private bool CanMove()
-    {
-        if(currentMovingCooldown <= 0f)
-        {
-            currentMovingCooldown = movingCooldown;
-            return true;
-        }
-        else
-        {
-
-            currentMovingCooldown -= 1f;
-            return false;
-        }
-    }
-
 }
 
