@@ -12,6 +12,7 @@ public class TargetLocation
     // bool aimbot = false;
 }
 
+[System.Serializable]
 public class TransformTargetLocation
 {
     public Vector3 position = Vector3.zero;

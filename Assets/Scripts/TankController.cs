@@ -40,6 +40,11 @@ public class TankController : MonoBehaviour
     void Start()
     {
         projectilesParent = GameObject.Find(projectilesParentName);
+        if (projectilesParent == null)
+        {
+            projectilesParent = Instantiate(new GameObject());
+            projectilesParent.name = projectilesParentName;
+        }
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         barrelFireParticleSystem = barrelFireParicle.GetComponent<ParticleSystem>();
