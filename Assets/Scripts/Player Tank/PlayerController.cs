@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float barrelMinAngle = -10f;
     [SerializeField] float barrelMaxAngle = 45f;
 
+    [HideInInspector] public float start_fuel = 900f;
+    [HideInInspector] public float fuel;
+    float start_time = 0f;
+
     TankController tankController;
 
     // Start is called before the first frame update
@@ -31,15 +35,31 @@ public class PlayerController : MonoBehaviour
         tankController.barrelTurnSpeed = barrelTurnSpeed;
         tankController.barrelMinAngle = barrelMinAngle;
         tankController.barrelMaxAngle = barrelMaxAngle;
+
+        start_time = Time.time;
+        fuel = start_fuel;
     }
 
     // Update is called once per frame
     void Update()
     { 
-        tankController.horizontal = (int)Input.GetAxisRaw("Horizontal");
-        tankController.vertical = (int)Input.GetAxisRaw("Vertical");
-        tankController.horizontalHat = (int)Input.GetAxisRaw("Horizontal Hat");
-        tankController.verticalHat = (int)Input.GetAxisRaw("Vertical Hat");
-        tankController.fire = Input.GetButtonDown("Fire1");
+        fuel = start_fuel - (Time.time - start_time);
+
+        if (fuel >= 0)
+        {
+            tankController.horizontal = Input.GetAxis("Horizontal");
+            tankController.vertical = Input.GetAxis("Vertical");
+            tankController.horizontalHat = (int)Input.GetAxisRaw("Horizontal Hat");
+            tankController.verticalHat = (int)Input.GetAxisRaw("Vertical Hat");
+            tankController.fire = Input.GetButtonDown("Fire1");
+        }
+        else
+        {
+            tankController.horizontal = 0;
+            tankController.vertical = 0;
+            tankController.horizontalHat = 0;
+            tankController.verticalHat = 0;
+            tankController.fire = false;
+        }
     }
 }

@@ -8,11 +8,11 @@ public class TargetLocation
     public float aimingAccuracyPercentageX = 0.5f;
     public float aimingAccuracyPercentageY = 0.5f;
     public float cooldownAfterAction = 0.0f;
-
     // if extra time implement commented
     // bool aimbot = false;
 }
 
+[System.Serializable]
 public class TransformTargetLocation
 {
     public Vector3 position = Vector3.zero;

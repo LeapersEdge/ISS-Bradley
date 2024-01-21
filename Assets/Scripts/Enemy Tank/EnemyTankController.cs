@@ -9,10 +9,11 @@ public class EnemyTankController : MonoBehaviour
     [Header("Player Tank")]
     public GameObject playerTank;
     public GameObject playerTankHead;
-    [Header("Player Movement")]
+    [Header("Enemey Tank Movement")]
     [SerializeField] float speed = 5f;
     [SerializeField] float turnSpeed = 75f;
     [SerializeField] float shellSpeed = 125f;
+    [SerializeField] float accuracyMaxDistanceMiss = 10f;
     [Header("Head Movement")]
     [SerializeField] float headTurnSpeed = 75f;
     [SerializeField] float barrelTurnSpeed = 45f;
@@ -22,7 +23,6 @@ public class EnemyTankController : MonoBehaviour
     [Header("Tank Parts")]
     [SerializeField] Transform head_pivot;
     [SerializeField] Transform vertical_head;
-
 
     public TargetLocation[] targetLocations;
     private TankController controller;

@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyTankEntry
 {
-    public GameObject tankPrefab;
-    public List<TargetLocation> targetLocations = new List<TargetLocation> ();
+    public string tankPrefabName;
+    public List<TargetLocation> targetLocations = new List<TargetLocation>();
+    public Color color = Color.white;
 }

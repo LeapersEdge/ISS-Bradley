@@ -63,7 +63,7 @@ public class TankController : MonoBehaviour
         // first we rotate body if needed, than move forward, afterwards rotate head if needed
 
         if (horizontal != 0.0f && vertical != 0.0f)
-        {
+        {   
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
         velocity = transform.forward * vertical * speed;
