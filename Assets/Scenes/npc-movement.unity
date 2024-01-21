@@ -491,7 +491,7 @@ MonoBehaviour:
   barrelTurnSpeed: 45
   barrelMinAngle: -10
   barrelMaxAngle: 45
-  move_head_vertically: 0
+  move_head_vertically: 1
   head_pivot: {fileID: 924571872}
   vertical_head: {fileID: 611325617}
   targetLocations: []

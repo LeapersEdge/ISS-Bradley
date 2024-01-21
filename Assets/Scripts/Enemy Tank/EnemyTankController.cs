@@ -81,7 +81,7 @@ public class EnemyTankController : MonoBehaviour
         if (Math.Abs(deltaAngleY) > 1f)
         {
             controller.horizontalHat = horizontalInput;
-            if (Math.Abs(deltaAngleY) <= targetLocations[currentTargetIndex].aimingAccuracyPercentageY * 180f)
+            if (Math.Abs(deltaAngleY) <= (targetLocations[currentTargetIndex].aimingAccuracyPercentageY+1) * Math.Abs(deltaAngleY))
             {
                 controller.fire = true;
             }
@@ -97,7 +97,7 @@ public class EnemyTankController : MonoBehaviour
             if (Math.Abs(deltaAngleX) > 1f)
             {
                 controller.verticalHat = verticalInput;
-                if (Math.Abs(deltaAngleX) < targetLocations[currentTargetIndex].aimingAccuracyPercentageX * 180f)
+                if (Math.Abs(deltaAngleX) <= (targetLocations[currentTargetIndex].aimingAccuracyPercentageX+1) * Math.Abs(deltaAngleX))
                 {
                     controller.fire = true;
                 }
