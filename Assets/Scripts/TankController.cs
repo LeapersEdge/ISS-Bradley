@@ -58,8 +58,8 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    #region MOVEMENT
-        
+        #region MOVEMENT
+
         // first we rotate body if needed, than move forward, afterwards rotate head if needed
 
         if (horizontal != 0.0f && vertical != 0.0f)
@@ -67,7 +67,7 @@ public class TankController : MonoBehaviour
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
         velocity = transform.forward * vertical * speed;
-        
+
         if (horizontalHat != 0)
         {
             tankHead.transform.Rotate(0, horizontalHat * headTurnSpeed * Time.deltaTime, 0);
@@ -84,8 +84,8 @@ public class TankController : MonoBehaviour
                 tankBarrel.transform.rotation = Quaternion.Euler(360 - barrelMaxAngle, tankBarrel.transform.rotation.eulerAngles.y, tankBarrel.transform.rotation.eulerAngles.z);
             }
         }
-    
-    #endregion
+
+        #endregion
 
         if (fire && Time.time - lastTimeFired > fireCooldownDuration)
         {

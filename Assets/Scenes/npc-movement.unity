@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &523395549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  m_PrefabInstance: {fileID: 637933962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &611325617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5615691129034196868, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  m_PrefabInstance: {fileID: 924571871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &637933962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -286,9 +296,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: M2 BRADLEY(LOW POLY) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.3
+      value: 30.06
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -296,11 +310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.8
+      value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9564327
+      value: 0.8460538
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -308,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2919529
+      value: -0.5330976
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -320,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -33.95
+      value: -64.43
       objectReference: {fileID: 0}
     - target: {fileID: 6144592825142754723, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -336,6 +350,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 1963583303}
   m_SourcePrefab: {fileID: 100100000, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+--- !u!4 &924571872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7079194828146550426, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  m_PrefabInstance: {fileID: 924571871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1654295734
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +460,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1755344373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 142109930039617033, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
+  m_PrefabInstance: {fileID: 637933962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963583301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1312319868702436461, guid: c584817a058a7aab49a8981afcd8a35d, type: 3}
@@ -458,6 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743c5bd1af619c642b4960a6a3db6340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTank: {fileID: 523395549}
+  playerTankHead: {fileID: 1755344373}
   speed: 5
   turnSpeed: 75
   shellSpeed: 125
@@ -465,6 +491,9 @@ MonoBehaviour:
   barrelTurnSpeed: 45
   barrelMinAngle: -10
   barrelMaxAngle: 45
+  move_head_vertically: 1
+  head_pivot: {fileID: 924571872}
+  vertical_head: {fileID: 611325617}
   targetLocations: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
