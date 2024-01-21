@@ -10,6 +10,8 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField] private GameObject playerTank;
     [SerializeField] private GameObject[] enemyTanks;
     [SerializeField] private GameObject[] maps;
+    [Header("UI")]
+    [SerializeField] private GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -96,8 +98,29 @@ public class ScenarioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            if (pauseMenu.activeSelf)
+            {
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
+        }
     }
 
+    public void ResumeButton() 
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void ExitScenarioButton() 
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
     
 }

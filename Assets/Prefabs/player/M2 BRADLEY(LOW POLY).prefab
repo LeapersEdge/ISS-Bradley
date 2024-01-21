@@ -3741,9 +3741,10 @@ GameObject:
   - component: {fileID: 8339553944566690703}
   - component: {fileID: 4908605016869445586}
   - component: {fileID: 2658626213617793650}
+  - component: {fileID: -660991671465010470}
   m_Layer: 0
   m_Name: M2 BRADLEY(LOW POLY)
-  m_TagString: Player
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3852,7 +3853,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 26c05afd971f1ed60bcb5cdbddfae8e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72ec32ce0c383fe4f99819dd6cdcf9a8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3938,6 +3939,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-660991671465010470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312319868702436461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce1f6aa824ba1435aa1e8b3d903507f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
 --- !u!1 &1364710396338760627
 GameObject:
   m_ObjectHideFlags: 0

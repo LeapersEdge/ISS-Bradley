@@ -7,6 +7,8 @@ public class TankController : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
     ParticleSystem barrelFireParticleSystem;
+    float fireCooldownDuration = 1.75f;
+    float lastTimeFired = 0f;
 
     [Header("Objects")]
     [SerializeField] string projectilesParentName = "Projectiles";
@@ -85,8 +87,9 @@ public class TankController : MonoBehaviour
     
     #endregion
 
-        if (fire)
+        if (fire && Time.time - lastTimeFired > fireCooldownDuration)
         {
+            lastTimeFired = Time.time;
             GameObject shell = Instantiate(tankShellPrefab, tankShellSpawnLocation.transform.position, tankShellSpawnLocation.transform.rotation);
             shell.transform.SetParent(projectilesParent.transform);
             shell.GetComponent<TankShellController>().shellSpeed = shellSpeed;
