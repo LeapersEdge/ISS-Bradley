@@ -9,7 +9,9 @@ public class TankShellController : MonoBehaviour
     AudioSource audioSource;
 
     Vector3 velocity;
+    Vector3 gravity;
     public float shellSpeed = 100f;
+    [SerializeField] bool no_gravity = false;
 
     void Awake()
     {
@@ -21,13 +23,19 @@ public class TankShellController : MonoBehaviour
 
     void Start()
     {
+        gravity = new Vector3(0, -9.81f, 0);
+        if (no_gravity)
+            gravity = Vector3.zero;
         velocity = transform.forward * shellSpeed;
     }
 
     void Update()
     {
+        velocity += gravity * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime;
+
         RaycastHit hit;        
-        if (Physics.Raycast(transform.position, transform.forward, out hit, shellSpeed * Time.deltaTime) && velocity != Vector3.zero)
+        if (Physics.Raycast(transform.position, velocity * Time.deltaTime, out hit, shellSpeed * Time.deltaTime) && velocity != Vector3.zero)
         {
             velocity = Vector3.zero;
 
@@ -35,7 +43,6 @@ public class TankShellController : MonoBehaviour
             audioSource.Play();
             this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
             this.gameObject.transform.position = hit.point;
-            GetComponent<Rigidbody>().useGravity = false;
 
             // check if player is within trigger collider that sits on this object
             Collider[] colliders = Physics.OverlapSphere(transform.position, 12.0f);    
@@ -56,8 +63,6 @@ public class TankShellController : MonoBehaviour
                 }
             }
         }
-
-        transform.position += velocity * Time.deltaTime;
     }
 
     List<GameObject> RecursiveParentDigging(List<GameObject> recursiveList, Transform obj)

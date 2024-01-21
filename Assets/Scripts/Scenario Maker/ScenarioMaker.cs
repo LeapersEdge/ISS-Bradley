@@ -28,6 +28,8 @@ public class ScenarioMaker : MonoBehaviour
 
     void Start()
     {
+        FindAnyObjectByType<AudioListener>().enabled = false;
+
         Camera camera = Camera.main;
         camera.transform.position = new Vector3(0, 0, 0);
         camera.transform.rotation = Quaternion.Euler(0, 0, 0);

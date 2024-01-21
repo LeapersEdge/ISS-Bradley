@@ -81,6 +81,7 @@ public class ScenarioManager : MonoBehaviour
             enemy_tank.transform.rotation = enemy_tank_entry.targetLocations[0].location.rotation;
             // TODO: uncommend when enemy tank controller is implemented
             enemy_tank.GetComponent<EnemyTankController>().targetLocations = enemy_tank_entry.targetLocations.ToArray();
+            enemy_tank.GetComponent<EnemyTankController>().playerTank = player_tank;
             enemy_tank.GetComponent<EnemyTankController>().enabled = true;
         }
 

@@ -6,6 +6,8 @@ public class TankController : MonoBehaviour
 {
     Rigidbody rb;
     AudioSource audioSource;
+    AudioSource passiveNoise;
+    AudioSource activeNoise;
     ParticleSystem barrelFireParticleSystem;
     float fireCooldownDuration = 1.75f;
     float lastTimeFired = 0f;
@@ -53,6 +55,21 @@ public class TankController : MonoBehaviour
         barrelFireParticleSystem.Stop();
         barrelFireParicle.transform.parent = null;
         barrelFireParicle.transform.localScale = new Vector3(1, 1, 1);
+
+        foreach (Transform child in transform)
+        {
+            if (child.name == "active")
+            {
+                activeNoise = child.GetComponent<AudioSource>();
+            }
+            else if (child.name == "passive")
+            {
+                passiveNoise = child.GetComponent<AudioSource>();
+            }
+        }
+        
+        if (passiveNoise != null)
+            passiveNoise.Play();
     }
 
     // Update is called once per frame
@@ -67,6 +84,19 @@ public class TankController : MonoBehaviour
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
         velocity = transform.forward * vertical * speed;
+        
+        // active noise playing
+        if (activeNoise != null && passiveNoise != null)
+        {
+            if (vertical != 0.0f && !activeNoise.isPlaying)
+            {
+                activeNoise.Play();
+            }   
+            else if (vertical == 0.0f && activeNoise.isPlaying)
+            {
+                activeNoise.Stop();
+            }  
+        }
 
         if (horizontalHat != 0)
         {
@@ -103,5 +133,12 @@ public class TankController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+    }
+
+    void OnDisable()
+    {
+        audioSource.Stop();
+        activeNoise.Stop();
+        passiveNoise.Stop();
     }
 }

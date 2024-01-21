@@ -18,14 +18,17 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public float start_fuel = 900f;
     [HideInInspector] public float fuel;
+    [HideInInspector] public float speedometer = 0f;
     float start_time = 0f;
 
+    HitPoints hp;
     TankController tankController;
 
     // Start is called before the first frame update
     void Start()
     {
         tankController = GetComponent<TankController>();
+        hp = GetComponent<HitPoints>();
 
         tankController.speed = speed;
         tankController.turnSpeed = turnSpeed;
@@ -52,6 +55,7 @@ public class PlayerController : MonoBehaviour
             tankController.horizontalHat = (int)Input.GetAxisRaw("Horizontal Hat");
             tankController.verticalHat = (int)Input.GetAxisRaw("Vertical Hat");
             tankController.fire = Input.GetButtonDown("Fire1");
+            speedometer = tankController.speed * tankController.vertical * 8.0f;
         }
         else
         {
@@ -60,6 +64,12 @@ public class PlayerController : MonoBehaviour
             tankController.horizontalHat = 0;
             tankController.verticalHat = 0;
             tankController.fire = false;
+            speedometer = 0f;
+        }
+
+        if (hp.HP <= 0)
+        {
+            speedometer = 0f;
         }
     }
 }

@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class EnemyTankController : MonoBehaviour
 {
-    [Header("Player Tank")]
-    public GameObject playerTank;
-    public GameObject playerTankHead;
+    [HideInInspector] public GameObject playerTank;
     [Header("Enemey Tank Movement")]
     [SerializeField] float speed = 5f;
     [SerializeField] float turnSpeed = 75f;
@@ -64,7 +62,7 @@ public class EnemyTankController : MonoBehaviour
 
     void RotateHeadToTarget()
     {
-        Vector3 directionToTarget = playerTankHead.transform.position - head_pivot.transform.position;
+        Vector3 directionToTarget = playerTank.transform.position - head_pivot.transform.position;
         Quaternion horizontalRotation = Quaternion.LookRotation(directionToTarget);
         float horizontalRotationY = horizontalRotation.eulerAngles.y;
         float deltaAngleY = Mathf.DeltaAngle(head_pivot.transform.rotation.eulerAngles.y, horizontalRotationY);

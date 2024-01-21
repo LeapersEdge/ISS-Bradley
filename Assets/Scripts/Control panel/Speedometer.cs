@@ -14,8 +14,7 @@ public class Speedometer : MonoBehaviour {
     private float speedMax;
     private float speed;
 
-    GameObject playerTank;
-    TankController tankController;
+    PlayerController playerController;
 
     private void Start() {
         needleTransform = transform.Find("needle");
@@ -27,8 +26,7 @@ public class Speedometer : MonoBehaviour {
 
         CreateSpeedLabels();
 
-        playerTank = FindObjectOfType<PlayerController>().gameObject;
-        tankController = playerTank.GetComponent<TankController>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Update() {
@@ -41,7 +39,7 @@ public class Speedometer : MonoBehaviour {
     }
 
     private void HandlePlayerInput() {
-        speed = tankController.speed * tankController.vertical * 8.0f;
+        speed = playerController.speedometer;
         speed = Mathf.Clamp(speed, 0f, speedMax);
     }
 
