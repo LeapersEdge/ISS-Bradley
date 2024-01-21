@@ -28,7 +28,7 @@ public class ScenarioMaker : MonoBehaviour
 
     void Start()
     {
-        FindAnyObjectByType<AudioListener>().enabled = false;
+        FindFirstObjectByType<AudioListener>().enabled = false;
 
         Camera camera = Camera.main;
         camera.transform.position = new Vector3(0, 0, 0);

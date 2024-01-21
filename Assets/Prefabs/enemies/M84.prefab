@@ -6224,7 +6224,7 @@ MonoBehaviour:
   accuracyMaxDistanceMiss: 10
   headTurnSpeed: 75
   barrelTurnSpeed: 45
-  barrelMinAngle: -10
+  barrelMinAngle: -5
   barrelMaxAngle: 45
   move_head_vertically: 1
   head_pivot: {fileID: 4852967201597535598}

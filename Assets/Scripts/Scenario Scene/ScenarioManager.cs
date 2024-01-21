@@ -19,6 +19,7 @@ public class ScenarioManager : MonoBehaviour
     void Start()
     {
         Camera.main.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
 
         // check if scenario_text is empty
         string scenario_text = PlayerPrefs.GetString("scenario_text", "");
