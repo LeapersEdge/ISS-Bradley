@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class EnemyTankEntry
 {
     public GameObject tankPrefab;
-    public TargetLocation[] targetLocations;
+    public List<TargetLocation> targetLocations = new List<TargetLocation> ();
 }

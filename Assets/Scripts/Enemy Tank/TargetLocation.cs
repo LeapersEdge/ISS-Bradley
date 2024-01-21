@@ -7,6 +7,7 @@ public class TargetLocation
     public bool agressive = false;
     public float aimingAccuracyPercentageX = 0.5f;
     public float aimingAccuracyPercentageY = 0.5f;
+    public float cooldownAfterAction = 0.0f;
 
     // if extra time implement commented
     // bool aimbot = false;

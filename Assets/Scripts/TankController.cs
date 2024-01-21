@@ -7,6 +7,8 @@ public class TankController : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
     ParticleSystem barrelFireParticleSystem;
+    float fireCooldownDuration = 1.75f;
+    float lastTimeFired = 0f;
 
     [Header("Objects")]
     [SerializeField] string projectilesParentName = "Projectiles";
@@ -25,13 +27,13 @@ public class TankController : MonoBehaviour
     [HideInInspector] public float barrelMinAngle = -10f;
     [HideInInspector] public float barrelMaxAngle = 45f;
 
-    [HideInInspector] public int horizontal;
-    [HideInInspector] public int vertical;
+    [HideInInspector] public float horizontal;
+    [HideInInspector] public float vertical;
     [HideInInspector] public int horizontalHat;
     [HideInInspector] public int verticalHat;
     [HideInInspector] public bool fire;
 
-    Vector3 velocity;
+    [HideInInspector] public Vector3 velocity;
     Vector3 acceleration;
 
     GameObject projectilesParent;
@@ -40,6 +42,11 @@ public class TankController : MonoBehaviour
     void Start()
     {
         projectilesParent = GameObject.Find(projectilesParentName);
+        if (projectilesParent == null)
+        {
+            projectilesParent = Instantiate(new GameObject());
+            projectilesParent.name = projectilesParentName;
+        }
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         barrelFireParticleSystem = barrelFireParicle.GetComponent<ParticleSystem>();
@@ -51,16 +58,16 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    #region MOVEMENT
-        
+        #region MOVEMENT
+
         // first we rotate body if needed, than move forward, afterwards rotate head if needed
 
-        if (horizontal != 0 && vertical != 0)
-        {   
+        if (horizontal != 0.0f && vertical != 0.0f)
+        {
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
         velocity = transform.forward * vertical * speed;
-        
+
         if (horizontalHat != 0)
         {
             tankHead.transform.Rotate(0, horizontalHat * headTurnSpeed * Time.deltaTime, 0);
@@ -77,11 +84,12 @@ public class TankController : MonoBehaviour
                 tankBarrel.transform.rotation = Quaternion.Euler(360 - barrelMaxAngle, tankBarrel.transform.rotation.eulerAngles.y, tankBarrel.transform.rotation.eulerAngles.z);
             }
         }
-    
-    #endregion
 
-        if (fire)
+        #endregion
+
+        if (fire && Time.time - lastTimeFired > fireCooldownDuration)
         {
+            lastTimeFired = Time.time;
             GameObject shell = Instantiate(tankShellPrefab, tankShellSpawnLocation.transform.position, tankShellSpawnLocation.transform.rotation);
             shell.transform.SetParent(projectilesParent.transform);
             shell.GetComponent<TankShellController>().shellSpeed = shellSpeed;
