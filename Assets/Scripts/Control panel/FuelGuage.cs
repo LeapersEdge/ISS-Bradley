@@ -14,15 +14,23 @@ public class FuelGuagde : MonoBehaviour {
     private float fuelMax;
     private float fuel;
 
-    private void Awake() {
+    GameObject playerTank;
+    PlayerController playerController;
+    TankController tankController;
+
+    private void Start() {
         needleTransform = transform.Find("needle");
         fuelLevelLabelTemplateTransform = transform.Find("fuelLevelLabelTemplate");
         fuelLevelLabelTemplateTransform.gameObject.SetActive(false);
 
-        fuelMax = 100f;
-        fuel = fuelMax;
-
         CreateFuelLevelLabels();
+
+        playerController = FindObjectOfType<PlayerController>();
+        playerTank = FindObjectOfType<PlayerController>().gameObject;
+        tankController = playerTank.GetComponent<TankController>();
+
+        fuelMax = playerController.start_fuel;
+        fuel = fuelMax;
     }
 
     private void Update() {
@@ -32,11 +40,7 @@ public class FuelGuagde : MonoBehaviour {
     }
 
     private void HandlePlayerInput() {
-        if (Input.GetKey(KeyCode.UpArrow)){
-            float deceleration = 1f;
-            fuel -= deceleration * Time.deltaTime;
-        }
-
+        fuel = playerController.fuel;
         fuel = Mathf.Clamp(fuel, 0f, fuelMax);
     }
 

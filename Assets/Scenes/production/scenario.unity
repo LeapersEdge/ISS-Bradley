@@ -412,7 +412,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -786,7 +786,9 @@ MonoBehaviour:
   - {fileID: 723917140669615581, guid: ddeb93399aae3f9fdae7160886259864, type: 3}
   - {fileID: 67547698887899936, guid: 0291da93ec61f3f41bd5c91f6e89ef93, type: 3}
   - {fileID: 6078311411777518016, guid: 7162ac222707b0f4581797af7adea4c4, type: 3}
+  canvas: {fileID: 750409368}
   pauseMenu: {fileID: 1393724998}
+  playerMenu: {fileID: 1668562288205724250, guid: 6bc9e2a14f56e14bda7ce4eb32aa46de, type: 3}
 --- !u!1 &1282360827
 GameObject:
   m_ObjectHideFlags: 0

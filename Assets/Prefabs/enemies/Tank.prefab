@@ -96,6 +96,7 @@ MonoBehaviour:
   horizontalHat: 0
   verticalHat: 0
   fire: 0
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4352811877314185511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +112,7 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 75
   shellSpeed: 125
+  accuracyMaxDistanceMiss: 10
   headTurnSpeed: 75
   barrelTurnSpeed: 45
   barrelMinAngle: -10
@@ -142,7 +144,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72ec32ce0c383fe4f99819dd6cdcf9a8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

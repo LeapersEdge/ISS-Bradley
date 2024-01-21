@@ -25,8 +25,6 @@ public class EnemyTankController : MonoBehaviour
 
     private int currentTargetIndex = 0;
     bool waiting = false;
-    bool player_in_sight = false;
-    Vector3 player_sighted_at;
 
     void Start()
     {
@@ -47,63 +45,9 @@ public class EnemyTankController : MonoBehaviour
 
     void Update()
     {
-        ScanForPlayer();
-        if (!player_in_sight)
-            RotateHeadToTarget();
-        else
-            LockOntoPlayer();
+        RotateHeadToTarget();
         if (!waiting)
             MoveToTarget();
-    }
-
-    void ScanForPlayer()
-    {
-        // rayscan with FOV od 50 degrees horizontally and verically and range of 100 meters to check if player is in sight
-        RaycastHit hit;
-        for (int i = -25; i < 25; i++)
-        {
-            for (int j = -25; j < 25; j++)
-            {
-                if (Physics.Raycast(head_pivot.position, Quaternion.AngleAxis(i, Vector3.up) * Quaternion.AngleAxis(j, Vector3.right) * head_pivot.forward, out hit, 100.0f))
-                {
-                    if (hit.collider.gameObject.tag == "Player")
-                    {
-                        player_in_sight = true;
-                        player_sighted_at = hit.collider.gameObject.transform.position;
-                        // ajust player_sighted_at to compensate for accuracyX and accuracyY in current targetLocation
-                        player_sighted_at.x += (1.0f - targetLocations[currentTargetIndex].aimingAccuracyPercentageX) * UnityEngine.Random.Range(-accuracyMaxDistanceMiss, accuracyMaxDistanceMiss);
-                        player_sighted_at.y += (1.0f - targetLocations[currentTargetIndex].aimingAccuracyPercentageY) * UnityEngine.Random.Range(-accuracyMaxDistanceMiss, accuracyMaxDistanceMiss);
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    void LockOntoPlayer()
-    {
-        Vector3 directionToTarget = player_sighted_at - transform.position;
-        float distanceToTarget = directionToTarget.magnitude;
-        float angleToTarget = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-
-        if (Math.Abs(distanceToTarget) > 7f)
-        {
-            controller.vertical = 1;
-            if (Math.Abs(angleToTarget) > 5f)
-            {
-                int horizontalInput = (int)Mathf.Sign(angleToTarget);            
-                }
-            else
-            {
-                controller.horizontal = 0;
-            }
-        }
-        else
-        {
-            controller.vertical = 0;
-            controller.horizontal = 0;
-            controller.fire = true;
-        }        
     }
 
     void RotateHeadToTarget()

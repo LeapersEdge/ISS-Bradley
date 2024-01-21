@@ -27,13 +27,13 @@ public class TankController : MonoBehaviour
     [HideInInspector] public float barrelMinAngle = -10f;
     [HideInInspector] public float barrelMaxAngle = 45f;
 
-    [HideInInspector] public int horizontal;
-    [HideInInspector] public int vertical;
+    [HideInInspector] public float horizontal;
+    [HideInInspector] public float vertical;
     [HideInInspector] public int horizontalHat;
     [HideInInspector] public int verticalHat;
     [HideInInspector] public bool fire;
 
-    Vector3 velocity;
+    [HideInInspector] public Vector3 velocity;
     Vector3 acceleration;
 
     GameObject projectilesParent;
@@ -62,7 +62,7 @@ public class TankController : MonoBehaviour
         
         // first we rotate body if needed, than move forward, afterwards rotate head if needed
 
-        if (horizontal != 0 && vertical != 0)
+        if (horizontal != 0.0f && vertical != 0.0f)
         {   
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }

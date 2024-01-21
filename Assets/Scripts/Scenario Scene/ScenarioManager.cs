@@ -11,7 +11,9 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField] private GameObject[] enemyTanks;
     [SerializeField] private GameObject[] maps;
     [Header("UI")]
+    [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject playerMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class ScenarioManager : MonoBehaviour
         // 1st: load map
         // 2nd: load player tank
         // 3rd: load enemy tanks
+        // 4th: load UI
 
         // 1st: load map
         string map_name = scenarioData.map_name;
@@ -93,6 +96,11 @@ public class ScenarioManager : MonoBehaviour
             // increase render distance
             QualitySettings.lodBias = 8.0f;
         }
+
+        // 4th: load UI
+        GameObject player_menu = Instantiate(playerMenu);
+        player_menu.transform.SetParent(canvas.transform, false);
+    
     }
 
     // Update is called once per frame
