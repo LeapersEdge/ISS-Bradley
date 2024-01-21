@@ -10,6 +10,10 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField] private GameObject playerTank;
     [SerializeField] private GameObject[] enemyTanks;
     [SerializeField] private GameObject[] maps;
+    [Header("UI")]
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject playerMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,7 @@ public class ScenarioManager : MonoBehaviour
         // 1st: load map
         // 2nd: load player tank
         // 3rd: load enemy tanks
+        // 4th: load UI
 
         // 1st: load map
         string map_name = scenarioData.map_name;
@@ -75,7 +80,8 @@ public class ScenarioManager : MonoBehaviour
             enemy_tank.transform.position = enemy_tank_entry.targetLocations[0].location.position;
             enemy_tank.transform.rotation = enemy_tank_entry.targetLocations[0].location.rotation;
             // TODO: uncommend when enemy tank controller is implemented
-            //enemy_tank.GetComponent<EnemyTankController>().targetLocations = enemy_tank_entry.targetLocations;
+            enemy_tank.GetComponent<EnemyTankController>().targetLocations = enemy_tank_entry.targetLocations.ToArray();
+            enemy_tank.GetComponent<EnemyTankController>().enabled = true;
         }
 
         if (map_name == "houses_terrain")
@@ -90,13 +96,39 @@ public class ScenarioManager : MonoBehaviour
             // increase render distance
             QualitySettings.lodBias = 8.0f;
         }
+
+        // 4th: load UI
+        GameObject player_menu = Instantiate(playerMenu);
+        player_menu.transform.SetParent(canvas.transform, false);
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            if (pauseMenu.activeSelf)
+            {
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
+        }
     }
 
+    public void ResumeButton() 
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void ExitScenarioButton() 
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
     
 }

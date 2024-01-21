@@ -7,6 +7,8 @@ public class TankController : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
     ParticleSystem barrelFireParticleSystem;
+    float fireCooldownDuration = 1.75f;
+    float lastTimeFired = 0f;
 
     [Header("Objects")]
     [SerializeField] string projectilesParentName = "Projectiles";
@@ -25,13 +27,13 @@ public class TankController : MonoBehaviour
     [HideInInspector] public float barrelMinAngle = -10f;
     [HideInInspector] public float barrelMaxAngle = 45f;
 
-    [HideInInspector] public int horizontal;
-    [HideInInspector] public int vertical;
+    [HideInInspector] public float horizontal;
+    [HideInInspector] public float vertical;
     [HideInInspector] public int horizontalHat;
     [HideInInspector] public int verticalHat;
     [HideInInspector] public bool fire;
 
-    Vector3 velocity;
+    [HideInInspector] public Vector3 velocity;
     Vector3 acceleration;
 
     GameObject projectilesParent;
@@ -60,7 +62,7 @@ public class TankController : MonoBehaviour
         
         // first we rotate body if needed, than move forward, afterwards rotate head if needed
 
-        if (horizontal != 0 && vertical != 0)
+        if (horizontal != 0.0f && vertical != 0.0f)
         {   
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
@@ -85,8 +87,9 @@ public class TankController : MonoBehaviour
     
     #endregion
 
-        if (fire)
+        if (fire && Time.time - lastTimeFired > fireCooldownDuration)
         {
+            lastTimeFired = Time.time;
             GameObject shell = Instantiate(tankShellPrefab, tankShellSpawnLocation.transform.position, tankShellSpawnLocation.transform.rotation);
             shell.transform.SetParent(projectilesParent.transform);
             shell.GetComponent<TankShellController>().shellSpeed = shellSpeed;

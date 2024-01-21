@@ -20,16 +20,36 @@ public class HitPoints : MonoBehaviour
             // TODO: explosion particle effects
 
             // disable tank controller
-            GetComponent<TankController>().enabled = false;
+            if (GetComponent<TankController>() != null)
+                GetComponent<TankController>().enabled = false;
             
             // make material partially black
-            GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f, 0.5f);
+            ChangeColor(gameObject, new Color(0.0f, 0.0f, 0.0f, 0.5f));
 
             // disable audio
-            GetComponent<AudioSource>().enabled = false;
+            if (GetComponent<AudioSource>() != null)
+                GetComponent<AudioSource>().enabled = false;
 
             // disable hitpoint
             enabled = false;
+        }
+    }
+
+    void ChangeColor(GameObject obj, Color color)
+    {
+        if (obj == null)
+        {
+            return;
+        }
+
+        if (obj.GetComponent<Renderer>() != null)
+        {
+            obj.GetComponent<Renderer>().material.color = color;
+        }
+
+        foreach (Transform child in obj.transform)
+        {
+            ChangeColor(child.gameObject, color);
         }
     }
 }
